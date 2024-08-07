@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav id="nav-bar">
+            <a href="index.html" aria-label="link to go to the homepage">Home</a>
+            <a href="pantry.html" aria-label="link to go to the pantry page">Pantry</a>
+            <a href="grocery-list.html" aria-label="link to go to the grocery list page">Grocery List</a>
+            <a href="account.html" aria-label="link to go to the account page">Account</a>
+        </nav>
+        <div id="nav-edge"></div>
+        <div id="nav-button">
+            <p onclick="openNav()">+</p>
+        </div>
+    </header>
+    <main>
+        <section class="general-container" id="dashboard-section">
+            <div class="title-container">
+                <h2 class="general-title">Pantry</h2>
+                <p class="general-subheader">Click each of the cards to add or remove items!</p>
+            </div>
+            <div class="content-container">
+                <div class="pantry-item">
+                    <div class="pantry-counter">
+                        
+                    </div>
+                    <div class="pantry-text">
+                        <span class="add-remove">+</span>
+                        <h3 class="pantry-title">Add Item</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
