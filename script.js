@@ -1,4 +1,4 @@
-function openNav () {
+function openNav() {
     let nav = document.getElementById('nav-bar');
     if (nav.style.height === '80px') {
         nav.style.height = '0';

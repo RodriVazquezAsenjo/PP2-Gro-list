@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,300;1,14..32,300&display=swap');
 
 :root {
-    --clr-background: #F5F5F5;
-    --clr-accent:#12372A;
+    --clr-background: white;
+    --clr-accent:#1E6249;
+    --clr-button: #3EC193;
     --padding-medium: 25px;
     --font-title:;
     --font-main:'Inter', sans serif;
@@ -11,13 +12,38 @@
     --font-size-h3: 40px;
     --font-size-large: 30px;
     --font-size-medium: 24px;
+    --font-size-button: 20px;
     --font-size-small: 16px;
+    --button-height-large: 55px;
+    --button-width-large: 250px;
+    --button-border-large: 12.5px;
 }
 
 * {
     margin: 0;
     padding: 0;
     font-family: var(--font-main);
+}
+
+h1 {
+    /*text*/
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    /*text*/
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    /*text*/
+    font-size: var(--font-size-h3);
+}
+
+a {
+    /*text*/
+    text-decoration: none;
+    color: inherit;
 }
 
 body {
@@ -55,13 +81,15 @@ header {
     background-color: var(--clr-accent);
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
+    box-shadow: rgba(0,0,0,0.2) 0 2px 2px;
 }
 #nav-button {
     /*position*/
     margin: 0 auto;
+    padding-bottom:15px;
     /*dimensions*/
     width: 80px;
-    height: 40px;    
+    height: 30px;    
     /*flex-box*/
     display: flex;
     flex-wrap: wrap;
@@ -71,9 +99,39 @@ header {
     background-color: var(--clr-accent);
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
+    box-shadow: rgba(0,0,0,0.2) 0 2px 2px;
     /*text*/
     color: var(--clr-background);
     font-size: var(--font-size-large);
 }
 
-#landing-page
+#landing-container {
+    /*position*/
+    padding:var(--padding-medium);
+    gap: 30px;
+    /*dimensions*/
+    height: 100vh;
+    /*flex-box*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-large {
+    /*position*/
+    /*dimensions*/
+    height: var(--button-height-large);
+    width: var(--button-width-large);
+    /*flex-box*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*box*/
+    background-color: var(--clr-button);
+    border-radius: var(--button-border-large);
+    box-shadow: rgba(0,0,0,0.2) 0 2px 2px;
+    /*text*/
+    color: var(--clr-background);
+    font-size: var(--font-size-button);
+}
