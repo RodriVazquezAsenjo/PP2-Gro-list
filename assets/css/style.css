@@ -53,7 +53,10 @@ body {
 }
 header {
     /*position*/
-    position: absolute;
+    position: fixed;
+    z-index: 1000;
+    top:0;
+    left:0;
 }
 
 #nav-bar {
@@ -106,10 +109,12 @@ header {
     /*text*/
     color: var(--clr-background);
     font-size: var(--font-size-large);
-}
-#nav-button:hover ~ #nav-edge {
     /*animation*/
-    height: 25px;
+    transition: 0.3s ease;
+}
+#nav-button:hover {
+    /*animation*/
+    transform: scale(1.1);
 }
 #landing-container {
     /*position*/
@@ -175,6 +180,7 @@ header {
 
 .dashboard-item {
     /*dimensions*/
+    max-width: 450px;
     min-width: 45%;
     height: 300px;
     /*flex-box*/
@@ -186,12 +192,38 @@ header {
     background-color: var(--clr-card);
     border-radius: var(--button-border-large);
     box-shadow: rgba(0,0,0,0.2) 0 2px 2px;
+    /*animation*/
+    transition: 0.3s ease;
 }
 
-.dashboard-text {
+.dashboard-item:hover {
+    /*animation*/
+    transform: scale(1.1);
+}
+.dashboard-img {
+    overflow: hidden;
+    height: 100%;
+    background-color: var(--clr-background);
+}
+
+.dashboard-img img{
+    width: 100%;
+    object-fit: fill;
+    object-position: center;
+}
+
+.dashboard-text h3{
+    /*position*/
+    padding: 0 var(--padding-small);
+    /*text*/
+    text-align: right;
+}
+
+.dashboard-text p {
     /*position*/
     padding: var(--padding-small);
     /*text*/
-    line-height: 40px;
+    font-size: var(--font-size-small);
+    line-height: 20px;
     text-align: right;
 }
