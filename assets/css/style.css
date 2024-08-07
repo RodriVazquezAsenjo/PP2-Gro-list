@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,300;1,14..32,300&display=swap');
+
+:root {
+    --clr-background: #F5F5F5;
+    --clr-accent:#12372A;
+    --padding-medium: 25px;
+    --font-title:;
+    --font-main:'Inter', sans serif;
+    --font-size-h1: 80px;
+    --font-size-h2: 64px;
+    --font-size-h3: 40px;
+    --font-size-large: 30px;
+    --font-size-medium: 24px;
+    --font-size-small: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+}
+
+body {
+    /*box*/
+    background-color: var(--clr-background);
+}
+header {
+    /*position*/
+    position: absolute;
+}
+
+#nav-bar {
+    /*dimensions*/
+    width: 100vw;
+    height: 0;
+    visibility: hidden;
+    /*flex-box*/
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    /*box*/
+    background-color: var(--clr-accent);
+    /*text*/
+    color: var(--clr-background);
+    font-size: var(--font-size-medium);
+    /*animation*/
+    transition: 0.3s ease-in-out;
+}
+#nav-edge {
+    /*position*/
+    /*dimensions*/
+    height: 15px;
+    /*box*/
+    background-color: var(--clr-accent);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+#nav-button {
+    /*position*/
+    margin: 0 auto;
+    /*dimensions*/
+    width: 80px;
+    height: 40px;    
+    /*flex-box*/
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    /*box*/
+    background-color: var(--clr-accent);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    /*text*/
+    color: var(--clr-background);
+    font-size: var(--font-size-large);
+}
+
+#landing-page
