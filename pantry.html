@@ -37,8 +37,8 @@
                     </form>
                 </div>
             </div>
-            <div class="content-container">
-                <div class="pantry-item" id="add-ingredient-container" onclick="openWindow()">
+            <div class="content-container" id="pantry-list">
+                <div class="add-remove-item" id="add-ingredient-container" onclick="closeWindow()">
                     <div class="pantry-text">
                         <span class="add-remove">+</span>
                         <h3 class="pantry-title">Add Item</h3>
@@ -64,8 +64,8 @@
                             <input type="date" id="add-ingredient-text">
                         </div>
                         <div id="add-ingredient-buttons">
-                            <button type="reset" class="button-medium">Reset</button>
-                            <button type="submit" class="button-medium">Add</button></div>
+                            <button type="reset" class="button-medium" id="button-reset">Reset</button>
+                            <button type="submit" class="button-medium" id="button-add" onclick="addIngredients(event)">Add</button></div>
                     </form>
                 </div>
             </div>

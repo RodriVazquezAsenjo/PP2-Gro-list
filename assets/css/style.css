@@ -259,7 +259,7 @@ header {
     font-size: var(--font-size-medium);
 }
 
-.pantry-item {
+.add-remove-item {
     /*dimensions*/
     width: 300px;
     height: 150px;
@@ -269,7 +269,7 @@ header {
     justify-content: flex-end;
     align-items: flex-end;
     /*box*/
-    background-color: var(--clr-card);
+    border: var(--clr-card) 2px dashed;
     border-radius: var(--button-border-large);
     box-shadow: rgba(0,0,0,0.2) 0 2px 2px;
     /*animation*/
@@ -453,6 +453,13 @@ header {
     /*flex-box*/
     display: flex;
     flex-direction: row;
+}
+
+#button-reset {
+    /*box*/
+    background-color: var(--clr-background);
+    /*tex*/
+    color: inherit;
 }
 footer {
     /*position*/
