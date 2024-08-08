@@ -10,3 +10,25 @@ function openNav() {
     }
     
 }
+
+function openWindow() {
+    let ingredientForm = document.getElementById('add-ingredient-form');
+    if (ingredientForm.classList.contains('visible')) {
+        ingredientForm.classList.remove('visible');
+        ingredientForm.style.opacity = '0';
+    } else {
+        ingredientForm.classList.add('visible');
+        ingredientForm.style.opacity = '1';
+    }
+}
+
+function closeWindow() {
+    let ingredientForm = document.getElementById('add-ingredient-form');
+    if (ingredientForm.classList.contains('visible')) {
+        ingredientForm.classList.remove('visible');
+        ingredientForm.style.opacity = '0';
+    } else {
+        ingredientForm.classList.add('visible');
+        ingredientForm.style.opacity = '1';
+    }
+}
