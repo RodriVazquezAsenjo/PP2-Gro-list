@@ -36,7 +36,19 @@ function addIngredients(event){
         <h3 class="pantry-title">${ingredient}</h3>
     </div>`
     ;
+
+    let counter=pantryItem.querySelector('.pantry-text');
+    if (parseInt(quantity) === 1) {
+        counter.style.borderTop = '3px solid red';
+    }
+    else if (parseInt(quantity) <=4) {
+        counter.style.borderTop = '3px solid orange';
+    }
+    else{
+        counter.style.borderTop = '3px solid green';
+    }
     document.getElementById('pantry-list').appendChild(pantryItem);
 }    
 
 document.getElementById('ingredient-form').addEventListener('submit', addIngredients);
+

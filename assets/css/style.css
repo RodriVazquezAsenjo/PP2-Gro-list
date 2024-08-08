@@ -278,6 +278,10 @@ header {
     /*animation*/
     transition: 0.3s ease;
 }
+
+.add-remove-item:hover {
+    transform: scale(1.1);
+}
 .pantry-item:hover {
     transform: scale(1.1);
 }
@@ -304,7 +308,7 @@ header {
     /*text*/
     font-size: var(--font-size-large);
 }
-.pantry-text {
+.pantry-text, .add-remove-text {
     /*position*/
     padding: 5px var(--padding-small);
     /*dimensions*/
@@ -312,6 +316,8 @@ header {
     /*flex-box*/
     display: flex;
     justify-content: space-between;
+    /*box*/
+    border-top: none;
 }
 .pantry-text h3{
     /*position*/

@@ -39,7 +39,7 @@
             </div>
             <div class="content-container" id="pantry-list">
                 <div class="add-remove-item" id="add-ingredient-container" onclick="closeWindow()">
-                    <div class="pantry-text">
+                    <div class="add-remove-text">
                         <span class="add-remove">+</span>
                         <h3 class="pantry-title">Add Item</h3>
                     </div>
@@ -65,7 +65,7 @@
                         </div>
                         <div id="add-ingredient-buttons">
                             <button type="reset" class="button-medium" id="button-reset">Reset</button>
-                            <button type="submit" class="button-medium" id="button-add" onclick="addIngredients(event)">Add</button></div>
+                            <button type="submit" class="button-medium" id="button-add" onclick="addIngredients(event)" onclick="closeWindow()">Add</button></div>
                     </form>
                 </div>
             </div>
