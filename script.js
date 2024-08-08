@@ -31,8 +31,12 @@ function addIngredients(event){
     let pantryItem = document.createElement('div');
     pantryItem.className = 'pantry-item';
     pantryItem.innerHTML =`
+    <div class ="counter-container">
+        <div class="counter" id="add"><p>+</p></div>
+        <div class="counter" id="subtract"><p>-</p></div>
+    </div>
     <div class="pantry-text">
-        <span class="counter">x${quantity}</span>
+        <span class="ingredient-quantity">x${quantity}</span>
         <h3 class="pantry-title">${ingredient}</h3>
     </div>`
     ;
@@ -52,3 +56,6 @@ function addIngredients(event){
 
 document.getElementById('ingredient-form').addEventListener('submit', addIngredients);
 
+function openPantryItem () {
+
+}
