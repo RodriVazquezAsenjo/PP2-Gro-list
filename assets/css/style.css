@@ -190,6 +190,9 @@ header {
     /*position*/
     padding: var(--padding-medium);
     gap: 25px;
+    text-align:center;
+    /*dimensions*/
+    width: fit-content;
     /*flex-box*/
     display: flex;
     flex-wrap: wrap;
@@ -471,6 +474,7 @@ header {
     justify-content: flex-end;
     align-items: flex-end;
     /*box*/
+    background-color: var(--clr-card);
     border: var(--clr-card) 2px dashed;
     border-radius: var(--button-border-large);
     box-shadow: rgba(0,0,0,0.2) 0 2px 2px;
