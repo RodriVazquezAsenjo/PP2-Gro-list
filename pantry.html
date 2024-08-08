@@ -22,14 +22,23 @@
     <main>
         <section class="general-container" id="dashboard-section">
             <div class="title-container">
-                <h2 class="general-title">Pantry</h2>
+                <h2 class="general-title">Pantry.</h2>
                 <p class="general-subheader">Click each of the cards to add or remove items!</p>
+                <div>
+                    <form id="list-selection">
+                        <select name="pre-list" id="pre-list">
+                            <option value="" disabled selected>---</option>
+                            <option value="basic">Basic</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="keto">Keto</option>
+                        </select>
+                        <button type="submit" class="medium-button">Add</button>
+                    </form>
+                </div>
             </div>
             <div class="content-container">
                 <div class="pantry-item">
-                    <div class="pantry-counter">
-                        
-                    </div>
                     <div class="pantry-text">
                         <span class="add-remove">+</span>
                         <h3 class="pantry-title">Add Item</h3>
