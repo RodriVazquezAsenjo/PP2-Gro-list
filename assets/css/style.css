@@ -467,6 +467,71 @@ header {
 .button-close-pantry-item:hover {
     color: var(--clr-button);
 }
+#grocery-list-table {
+    /*position*/
+    margin: 0 auto;
+    padding: var(--padding-medium);
+    /*dimensions*/
+    width: 80%;
+    max-width: 1200px;
+    /*box*/
+    border-radius: var(--button-border-large);
+    box-shadow: rgba(0,0,0,0.2) 0 2px 2px;
+    /*text*/
+    text-align: center;
+}
+
+.table-head {
+    /*dimensions*/
+    min-height: 80px;
+    /*text*/
+    font-size: var(--font-size-large);
+}
+th {
+
+    /*flex-box*/
+    display: flex;
+    align-items: center;
+}
+tr {
+    /*dimensions*/
+    min-height: 50px;
+    /*flex-box*/
+    display: flex;
+    justify-content: space-around;
+    /*box*/
+    border-bottom: var(--clr-card) 2px solid;
+}
+
+#head-row {
+    /*box*/
+    border-bottom: var(--clr-button) 2px solid;
+
+}
+
+td {
+    /*dimensions*/
+    width:100%;
+    /*flex-box*/
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.grocery-list-heading {
+    /*box*/
+    border: none;
+    /*text*/
+    font-size: var(--font-size-large);
+    text-align: center;
+}
+
+.grocery-list-entry {
+    /*box*/
+    border: none;
+    /*text*/
+    font-size: var(--font-size-medium);
+    text-align: center;
+}
 
 footer {
     width: 100vw;

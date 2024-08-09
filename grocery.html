@@ -22,7 +22,7 @@
 <body>
     <section class="general-container" id="dashboard-section">
         <div class="title-container">
-            <h2 class="general-title">Grocery List</h2>
+            <h2 class="general-title">Grocery List.</h2>
             <p class="general-subheader">Easily add your favorite items to this grocery list, or add from the pre-selected lists!</p>
             <div>
                 <form id="list-selection">
@@ -37,6 +37,27 @@
                 </form>
             </div>
         </div>
+        <table id="grocery-list-table">
+            <thead class="table-head">
+                <tr id="head-row">
+                    <th><input type="text" class="grocery-list-heading" value="Ingredient."></th>
+                    <th><input type="text" class="grocery-list-heading" value="Quantity."></th>
+                    <th><input type="text" class="grocery-list-heading" value="Bought."></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="grocery-list-entry"></td>
+                    <td><input type="text" class="grocery-list-entry"></td>
+                    <td><input type="checkbox" class="grocery-list-entry"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="grocery-list-entry"></td>
+                    <td><input type="text" class="grocery-list-entry"></td>>
+                    <td><input type="checkbox" class="grocery-list-entry"></td>
+                </tr>
+            </tbody>
+        </table>
         <script src="script.js"></script>
 </body>
 </html>
