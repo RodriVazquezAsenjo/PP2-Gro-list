@@ -38,9 +38,9 @@ function addIngredients(event){
     </div>
     <div class="pantry-text">
         <span class="ingredient-quantity">
-            <p>+</p>
+            <button class="quantity-button" id="add">+</button>
             <p>${quantity}</p>
-            <p>-</p>
+            <button class="quantity-button" id="substract">-</button>
         </span>
         <div>
             <p class="sub-pantry-text">${category}</p>
