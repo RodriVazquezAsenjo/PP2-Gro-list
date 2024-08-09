@@ -266,6 +266,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    transition: 0.3s ease;
 }
 
 .pantry-title {
@@ -309,12 +310,13 @@ header {
     transition: transform 0.3s ease;
 }
 
-.medium-button:hover {
+.button-medium:hover {
     transform: scale(1.1);
 }
 
 #add-ingredient-form {
     position: fixed;
+    z-index:1000;
     top: 20vh;
     left: 50%;
     transform: translate(-50%);
@@ -410,9 +412,10 @@ header {
     padding: var(--padding-extra-small) var(--padding-small);
     text-align: center;
     height: 100%;
-    width: 100%;
+    width: 270px;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: flex-end;
     border-radius: var(--button-border-large) var(--button-border-large) 0 0;
 }
@@ -454,6 +457,15 @@ header {
 #substract-quantity:hover {
     color: var(--clr-background);
     background-color: var(--clr-button-red);
+}
+
+.button-close-pantry-item {
+    transform: rotate(45deg);
+    font-size: var(--font-size-large);
+}
+
+.button-close-pantry-item:hover {
+    color: var(--clr-button);
 }
 
 footer {

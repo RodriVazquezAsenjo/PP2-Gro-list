@@ -11,7 +11,7 @@
         <nav id="nav-bar">
             <a href="index.html" aria-label="link to go to the homepage">Home</a>
             <a href="pantry.html" aria-label="link to go to the pantry page">Pantry</a>
-            <a href="grocery-list.html" aria-label="link to go to the grocery list page">Grocery List</a>
+            <a href="grocery.html" aria-label="link to go to the grocery list page">Grocery List</a>
             <a href="account.html" aria-label="link to go to the account page">Account</a>
         </nav>
         <div id="nav-edge"></div>
@@ -24,18 +24,6 @@
             <div class="title-container">
                 <h2 class="general-title">Pantry</h2>
                 <p class="general-subheader">Click each of the cards to add or remove items!</p>
-                <div>
-                    <form id="list-selection">
-                        <select name="pre-list" id="pre-list">
-                            <option value="" disabled selected>---</option>
-                            <option value="basic">Basic</option>
-                            <option value="vegetarian">Vegetarian</option>
-                            <option value="vegan">Vegan</option>
-                            <option value="keto">Keto</option>
-                        </select>
-                        <button type="submit" class="button-medium">Add</button>
-                    </form>
-                </div>
             </div>
             <div class="content-container" id="pantry-list">
                 <div class="add-remove-item" id="add-ingredient-container" onclick="closeWindow()">

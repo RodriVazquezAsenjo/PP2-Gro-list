@@ -31,7 +31,8 @@ function addIngredients(event) {
     let pantryItem = document.createElement('div');
     pantryItem.className = 'pantry-item';
     pantryItem.innerHTML = `
-    <div class="counter-container"> 
+    <div class="counter-container">
+        <p class="button-close-pantry-item" onclick="deleteItem(this)">+</p>
         <h3 class="pantry-title">${ingredient}</h3>
     </div>
     <div class="pantry-text">
@@ -79,4 +80,9 @@ function changeQuantity(button, amount) {
     if (currentValue <= 3) border.style.borderTop = '3px solid orange';
     if (currentValue <= 1) border.style.borderTop = '3px solid red';
     if (currentValue > 3) border.style.borderTop = '3px solid green';
+}
+
+function deleteItem (button) {
+    let pantryItem = button.closest('.pantry-item');
+    pantryItem.remove();
 }

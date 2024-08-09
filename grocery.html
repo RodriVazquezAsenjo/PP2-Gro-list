@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <title>Grocery List Page</title>
+</head>
+<body>
+    <header>
+        <nav id="nav-bar">
+            <a href="index.html" aria-label="link to go to the homepage">Home</a>
+            <a href="pantry.html" aria-label="link to go to the pantry page">Pantry</a>
+            <a href="grocery.html" aria-label="link to go to the grocery list page">Grocery List</a>
+            <a href="account.html" aria-label="link to go to the account page">Account</a>
+        </nav>
+        <div id="nav-edge"></div>
+        <div id="nav-button">
+            <button onclick="openNav()">+</button>
+        </div>
+    </header>
+<body>
+    <section class="general-container" id="dashboard-section">
+        <div class="title-container">
+            <h2 class="general-title">Grocery List</h2>
+            <p class="general-subheader">Easily add your favorite items to this grocery list, or add from the pre-selected lists!</p>
+            <div>
+                <form id="list-selection">
+                    <select name="pre-list" id="pre-list">
+                        <option value="" disabled selected>---</option>
+                        <option value="basic">Basic</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="keto">Keto</option>
+                    </select>
+                    <button type="submit" class="button-medium">Add</button>
+                </form>
+            </div>
+        </div>
+        <script src="script.js"></script>
+</body>
+</html>
