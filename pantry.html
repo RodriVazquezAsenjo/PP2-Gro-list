@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="assets/css/style.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Pantry Page</title>
 </head>
 <body>
     <header>
@@ -16,13 +16,13 @@
         </nav>
         <div id="nav-edge"></div>
         <div id="nav-button">
-            <p onclick="openNav()">+</p>
+            <button onclick="openNav()">+</button>
         </div>
     </header>
     <main>
         <section class="general-container" id="dashboard-section">
             <div class="title-container">
-                <h2 class="general-title">Pantry.</h2>
+                <h2 class="general-title">Pantry</h2>
                 <p class="general-subheader">Click each of the cards to add or remove items!</p>
                 <div>
                     <form id="list-selection">
@@ -56,23 +56,24 @@
                             <input type="number" id="add-ingredient-quantity" required>
                         </div>
                         <div class="form-entry">
-                            <label class="add-ingredient-label" for="add-ingredient-category">Category (optional)</label>
+                            <label class="add-ingredient-label" for="add-ingredient-category">Category (optional):</label>
                             <input type="text" id="add-ingredient-category">
                         </div>
                         <div class="form-entry">
-                            <label class="add-ingredient-label" for="add-ingredient-date">Expiry Date (optional)</label>
+                            <label class="add-ingredient-label" for="add-ingredient-date">Expiry Date (optional):</label>
                             <input type="date" id="add-ingredient-date">
                         </div>
                         <div id="add-ingredient-buttons">
                             <button type="reset" class="button-medium" id="button-reset">Reset</button>
-                            <button type="submit" class="button-medium" id="button-add" onclick="addIngredients(event)" onclick="closeWindow()">Add</button></div>
+                            <button type="submit" class="button-medium" id="button-add" onclick="addIngredients(event); closeWindow()">Add</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </section>
     </main>
     <footer>
-        
+        <!-- Footer content can be added here -->
     </footer>
     <script src="script.js"></script>
 </body>
