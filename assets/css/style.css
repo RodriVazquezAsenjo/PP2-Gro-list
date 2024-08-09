@@ -475,6 +475,7 @@ header {
     width: 80%;
     max-width: 1200px;
     /*box*/
+    background-color: var(--clr-card);
     border-radius: var(--button-border-large);
     box-shadow: rgba(0,0,0,0.2) 0 2px 2px;
     /*text*/
@@ -500,7 +501,7 @@ tr {
     display: flex;
     justify-content: space-around;
     /*box*/
-    border-bottom: var(--clr-card) 2px solid;
+    border-bottom: var(--clr-background) 2px solid;
 }
 
 #head-row {
@@ -531,6 +532,26 @@ td {
     /*text*/
     font-size: var(--font-size-medium);
     text-align: center;
+}
+input {
+    background-color: var(--clr-card);
+}
+
+.add-remove-row {
+    /*position*/
+    margin: 0 auto;
+    padding: var(--padding-medium);
+    gap: 25px;
+    /*flex-box*/
+    display: flex;
+    justify-content: center;
+    /*text*/
+    text-align: center;
+}
+
+#remove-row {
+    /*box*/
+    background-color: var(--clr-button-red);
 }
 
 footer {

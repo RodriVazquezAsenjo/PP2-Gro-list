@@ -86,3 +86,23 @@ function deleteItem (button) {
     let pantryItem = button.closest('.pantry-item');
     pantryItem.remove();
 }
+
+function addRow() {
+    let tbody = document.getElementById('table-body');
+    let newRow = document.createElement('tr');
+    
+newRow.innerHTML =`
+            <td><input type="text" class="grocery-list-entry" aria-label="Ingredient entry"></td>
+            <td><input type="number" class="grocery-list-entry" aria-label="Quantity entry"></td>
+            <td><input type="checkbox" class="grocery-list-entry" aria-label="Bought checkbox"></td>
+        `;
+        tbody.appendChild(newRow);
+}
+function removeRow() {
+    let tbody = document.getElementsByTagName('tbody')[0];
+    let lastRow = tbody.lastElementChild;
+    
+    if (lastRow) { // Check if there is at least one row to remove
+        tbody.removeChild(lastRow);
+    }
+}

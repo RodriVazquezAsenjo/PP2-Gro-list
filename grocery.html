@@ -9,24 +9,23 @@
 <body>
     <header>
         <nav id="nav-bar">
-            <a href="index.html" aria-label="link to go to the homepage">Home</a>
-            <a href="pantry.html" aria-label="link to go to the pantry page">Pantry</a>
-            <a href="grocery.html" aria-label="link to go to the grocery list page">Grocery List</a>
-            <a href="account.html" aria-label="link to go to the account page">Account</a>
+            <a href="index.html" aria-label="Link to go to the homepage">Home</a>
+            <a href="pantry.html" aria-label="Link to go to the pantry page">Pantry</a>
+            <a href="grocery.html" aria-label="Link to go to the grocery list page">Grocery List</a>
+            <a href="account.html" aria-label="Link to go to the account page">Account</a>
         </nav>
         <div id="nav-edge"></div>
         <div id="nav-button">
             <button onclick="openNav()">+</button>
         </div>
     </header>
-<body>
     <section class="general-container" id="dashboard-section">
         <div class="title-container">
             <h2 class="general-title">Grocery List.</h2>
             <p class="general-subheader">Easily add your favorite items to this grocery list, or add from the pre-selected lists!</p>
             <div>
                 <form id="list-selection">
-                    <select name="pre-list" id="pre-list">
+                    <select name="pre-list" id="pre-list" aria-label="Select a pre-defined list">
                         <option value="" disabled selected>---</option>
                         <option value="basic">Basic</option>
                         <option value="vegetarian">Vegetarian</option>
@@ -40,24 +39,31 @@
         <table id="grocery-list-table">
             <thead class="table-head">
                 <tr id="head-row">
-                    <th><input type="text" class="grocery-list-heading" value="Ingredient."></th>
-                    <th><input type="text" class="grocery-list-heading" value="Quantity."></th>
-                    <th><input type="text" class="grocery-list-heading" value="Bought."></th>
+                    <th><input type="text" class="grocery-list-heading" value="Ingredient" aria-label="Ingredient column heading"></th>
+                    <th><input type="text" class="grocery-list-heading" value="Quantity" aria-label="Quantity column heading"></th>
+                    <th><input type="text" class="grocery-list-heading" value="Bought" aria-label="Bought column heading"></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="table-body">
                 <tr>
-                    <td><input type="text" class="grocery-list-entry"></td>
-                    <td><input type="text" class="grocery-list-entry"></td>
-                    <td><input type="checkbox" class="grocery-list-entry"></td>
+                    <td><input type="text" class="grocery-list-entry" aria-label="Ingredient entry"></td>
+                    <td><input type="number" class="grocery-list-entry" aria-label="Quantity entry"></td>
+                    <td><input type="checkbox" class="grocery-list-entry" aria-label="Bought checkbox"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" class="grocery-list-entry"></td>
-                    <td><input type="text" class="grocery-list-entry"></td>>
-                    <td><input type="checkbox" class="grocery-list-entry"></td>
+                    <td><input type="text" class="grocery-list-entry" aria-label="Ingredient entry"></td>
+                    <td><input type="number" class="grocery-list-entry" aria-label="Quantity entry"></td>
+                    <td><input type="checkbox" class="grocery-list-entry" aria-label="Bought checkbox"></td>
                 </tr>
             </tbody>
         </table>
-        <script src="script.js"></script>
+        <div class="add-remove-row">
+            <button id="add-row" class="button-medium" onclick="addRow ()">Add</button>
+            <button id="remove-row" class="button-medium" onclick="removeRow ()">Remove</button>
+
+        </div>    
+    </section>
+        
+    <script src="script.js"></script>
 </body>
 </html>
