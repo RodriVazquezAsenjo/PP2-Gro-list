@@ -17,6 +17,7 @@
     --font-size-medium: 24px;
     --font-size-button: 20px;
     --font-size-small: 16px;
+    --font-size-extra-small:8px;
     --button-height-large: 55px;
     --button-width-large: 250px;
     --button-border-large: 12.5px;
@@ -307,17 +308,15 @@ header {
     /*flex-box*/
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     /*box*/
     border-top: none;
 }
-.pantry-text h3{
-    /*position*/
-    padding: 0 var(--padding-small);
-    /*flex-box*/
-    display: flex;
-    align-items: center;
+.pantry-title{
     /*text*/
     text-align: right;
+    font-size: var(--font-size-large);
+    color: black;
 }
 
 #list-selection {
@@ -471,7 +470,7 @@ header {
     justify-content: flex-end;
     align-items: flex-end;
     /*box*/
-    background-color: var(--clr-card);
+    background-color: var(--clr-background);
     border: var(--clr-card) 2px dashed;
     border-radius: var(--button-border-large);
     box-shadow: rgba(0,0,0,0.2) 0 2px 2px;
@@ -481,29 +480,33 @@ header {
 
 .ingredient-quantity{
     /*dimensions*/
-    width: 50px;
-    height:50px;
+    height: 40px;
+    width: 100px;
     /*flexbox*/
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     /*box*/
-    border-radius: 50%;
+    background-color: var(--clr-card);
+    border-radius: var(--button-border-medium);
     /*text*/
     font-size: var(--font-size-large);
+    color: var(--clr-font-sub);
 }
 .counter-container {
     /*position*/
+    padding: var(--padding-extra-small) var(--padding-small);
     text-align: center;
     /*dimensions*/
     height: 100%;
     width: 100%;
     /*flex-box*/
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-end;
     /*box*/
     background-color: var(--clr-background);
+    border-radius: var(--button-border-large) var(--button-border-large) 0 0;
 }
 
 .counter {
@@ -517,6 +520,11 @@ header {
     /*text*/
     font-size: var(--font-size-large);
     color: var(--clr-background);
+}
+.sub-pantry-text {
+    /*text*/
+    font: var(--font-size-extra-small);
+    text-align: right;
 }
 
 #add {
