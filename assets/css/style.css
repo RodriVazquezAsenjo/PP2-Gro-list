@@ -103,12 +103,13 @@ header {
     margin: 0 auto;
     padding-bottom: var(--padding-small);
     width: 80px;
-    height: 30px;
+    height: 40px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
     background-color: var(--clr-accent);
+    border: none;
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
     box-shadow: rgba(0,0,0,0.2) 0 2px 2px;
@@ -564,7 +565,36 @@ input {
 }
 
 .diet-info {
+    /*position*/
+    text-align: center;
+    /*flex-box*/
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.round-button {
+    /*position*/
+    /*dimensions*/
+    height: 50px;
+    width: 50px;
+    /*flex-box*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*box*/
+    background-color: var(--clr-button);
+    border: none;
+    border-radius: 50%;
+    /*text*/
+    font-size: var(--font-size-large);
+    color: var(--clr-background);
+    /*animation*/
+    transition: 0.3s ease;
+}
+
+.round-button:hover {
+    /*animation*/
+    transform: scale(1.1);
 }
 
 #quiz-container {
@@ -572,7 +602,7 @@ input {
     margin: auto;
     text-align: center;
     /*dimensions*/
-    height: 600px;
+    height: 50vh;
     max-width: 800px;
     /*flex-box*/
     /*box*/
@@ -581,19 +611,17 @@ input {
     border-radius: var(--button-border-large);
     /*text*/
 }
-.quiz-question {
-    /*position*/
-    padding: var(--padding-medium);
-    /*dimensions*/
-    height: 100px;
-}
 .image-container {
-    /*position*/
     /*dimensions*/
-    height: 500px;
+    height: 80%;
     width: 100%;
     /*box*/
     background-color:var(--clr-background);
+}
+
+.quiz-question {
+    /*position*/
+    padding: var(--padding-medium);
 }
 
 #point-container {
@@ -607,6 +635,22 @@ input {
     display: flex;
     justify-content: space-evenly;
 
+}
+.quiz-image {
+    overflow: hidden;
+    object-fit: cover;
+    height: 100%;
+    width:100%;
+    background-color: var(--clr-background);
+    border-top-left-radius: var(--button-border-large);
+    border-top-right-radius: var(--button-border-large);
+}
+
+.quiz-imgage img {
+    overflow: hidden;
+    width: auto;
+    object-fit: fill;
+    object-position: center;
 }
 
 footer {

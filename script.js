@@ -194,3 +194,41 @@ document.addEventListener('DOMContentLoaded', () => {
         listSelection.addEventListener('submit', addPreList, false);
     }
 });
+
+function randomPicture() {
+    // Array of image filenames
+    let images = ['onions', 'steak', 'bread', 'milk'];
+    let allDiets = ['vegan', 'vegetarian', 'keto', 'gluten-free']
+    // Array of ingredients with diet information
+    let ingredients = [
+        {name: 'onions', diets: ['vegan', 'vegetarian', 'keto', 'gluten-free']},
+        {name: 'steak', diets: ['keto', 'gluten-free']},
+        {name: 'bread', diets: ['vegan', 'vegetarian', 'keto']},
+        {name: 'milk', diets: ['vegetarian', 'gluten-free']},
+    ];
+
+    // Generate a random index
+    let i = Math.floor(Math.random() * images.length);
+    let x = Math.floor(Math.random() * allDiets.length);
+    // Create a new image element
+    let img = document.createElement('img');
+    img.className = 'quiz-image';  // Set the class name
+    img.src = `assets/images/${images[i]}.jpeg`; // Set the image source with directory path
+    img.alt = ingredients[i].name; // Set alternative text for accessibility
+    img.setAttribute('aria-label', 'quiz-image'); // Set aria-label attribute for accessibility
+
+
+    // Append the image to the container
+    document.querySelector('.image-container').appendChild(img);
+
+    let question = document.createElement('h3');
+    question.className = "quiz-question";
+    question.innerHTML =`
+        Is ${images[i]} ${allDiets[x]}?
+        `;
+    document.querySelector('.question-container').appendChild(question);
+
+}
+
+// Ensure the DOM is fully loaded before running the function
+document.addEventListener('DOMContentLoaded', randomPicture);
