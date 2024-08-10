@@ -550,6 +550,65 @@ input {
     background-color: var(--clr-button-red);
 }
 
+#diet-info-container {
+    /*position*/
+    margin: auto;
+    text-align: center;
+    padding: var(--padding-medium);
+    /*dimensions*/
+    max-width: 800px;
+    /*flex-box*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.diet-info {
+    display: flex;
+}
+
+#quiz-container {
+    /*position*/
+    margin: auto;
+    text-align: center;
+    /*dimensions*/
+    height: 600px;
+    max-width: 800px;
+    /*flex-box*/
+    /*box*/
+    background-color: var(--clr-card);
+    box-shadow: rgba(0,0,0,0.2) 0 2px 2px;
+    border-radius: var(--button-border-large);
+    /*text*/
+}
+.quiz-question {
+    /*position*/
+    padding: var(--padding-medium);
+    /*dimensions*/
+    height: 100px;
+}
+.image-container {
+    /*position*/
+    /*dimensions*/
+    height: 500px;
+    width: 100%;
+    /*box*/
+    background-color:var(--clr-background);
+}
+
+#point-container {
+    /*position*/
+    margin: auto;
+    text-align: center;
+    padding: var(--padding-medium);
+    /*dimensions*/
+    max-width: 800px;
+    /*flex-box*/
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
 footer {
     width: 100vw;
     min-height: 200px;

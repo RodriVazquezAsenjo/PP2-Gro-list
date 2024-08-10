@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <title>Quiz</title>
+</head>
+<body>
+    <header>
+        <nav id="nav-bar">
+            <a href="index.html" aria-label="link to go to the homepage">Home</a>
+            <a href="pantry.html" aria-label="link to go to the pantry page">Pantry</a>
+            <a href="grocery.html" aria-label="link to go to the grocery list page">Grocery List</a>
+            <a href="account.html" aria-label="link to go to the account page">Account</a>
+        </nav>
+        <div id="nav-edge"></div>
+        <div id="nav-button">
+            <p onclick="openNav()">+</p>
+        </div>
+    </header>
+    <main>
+        <section class="general-container" id="dashboard-section">
+            <div class="title-container">
+                <h2 class="general-title">Diet Quiz.</h2>
+                <p class="general-subheader">Swipe right for true or left for false.</p>
+            </div>
+            <div id="diet-info-container">
+                <div class="diet-info">
+                    <h3>Diet</h3>
+                    <button class="round-button">+</button>
+                </div>
+                <div class="diet-info">
+                    <h3>Diet</h3>
+                    <button class="round-button">+</button>
+                </div>
+                <div class="diet-info">
+                    <h3>Diet</h3>
+                    <button class="round-button">+</button>
+                </div>
+                <div class="diet-info">
+                    <h3>Diet</h3>
+                    <button class="round-button">+</button>
+                </div>
+                <div class="diet-info">
+                    <h3>Diet</h3>
+                    <button class="round-button">+</button>
+                </div>
+                <div class="diet-info">
+                    <h3>Diet</h3>
+                    <button class="round-button">+</button>
+                </div>
+            </div>
+            <div id="quiz-container">
+                <div class="image-container"></div>
+                <h3 class="quiz-question">Is this ingredient XXX?</h3>
+            </div>
+            <div id="point-container">
+                <div class="point-counter">
+                    <h3>Correct:</h3>
+                </div>
+                <div class="point-counter">
+                    <h3>Incorrect:</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
