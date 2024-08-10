@@ -1,5 +1,21 @@
+document.addEventListener('DOMContentLoaded', () => {
+    quizSetUp();
+    swipe();
+    observeChanges();
+
+    const ingredientForm = document.getElementById('ingredient-form');
+    if (ingredientForm) {
+        ingredientForm.addEventListener('submit', addIngredients, false);
+    }
+
+    const listSelection = document.getElementById('list-selection');
+    if (listSelection) {
+        listSelection.addEventListener('submit', addPreList, false);
+    }
+});
+
 function openNav() {
-    let nav = document.getElementById('nav-bar');
+    const nav = document.getElementById('nav-bar');
     if (nav.style.height === '80px') {
         nav.style.height = '0';
         nav.style.visibility = 'hidden';
@@ -10,7 +26,7 @@ function openNav() {
 }
 
 function closeWindow() {
-    let ingredientForm = document.getElementById('form-container');
+    const ingredientForm = document.getElementById('form-container');
     if (ingredientForm.classList.contains('visible')) {
         ingredientForm.classList.remove('visible');
         ingredientForm.style.opacity = '0';
@@ -23,12 +39,12 @@ function closeWindow() {
 function addIngredients(event) {
     event.preventDefault();
 
-    let ingredient = document.getElementById('add-ingredient-text').value;
-    let quantity = document.getElementById('add-ingredient-quantity').value;
-    let category = document.getElementById('add-ingredient-category').value;
-    let date = document.getElementById('add-ingredient-date').value;
+    const ingredient = document.getElementById('add-ingredient-text').value;
+    const quantity = document.getElementById('add-ingredient-quantity').value;
+    const category = document.getElementById('add-ingredient-category').value;
+    const date = document.getElementById('add-ingredient-date').value;
 
-    let pantryItem = document.createElement('div');
+    const pantryItem = document.createElement('div');
     pantryItem.className = 'pantry-item';
     pantryItem.innerHTML = `
         <div class="counter-container">
@@ -39,7 +55,7 @@ function addIngredients(event) {
             <span class="ingredient-quantity">
                 <button class="quantity-button add-quantity" onclick="changeQuantity(this, 1)">+</button>
                 <p class="quantity-number">${quantity}</p>
-                <button class="quantity-button substract-quantity" onclick="changeQuantity(this, -1)">-</button>
+                <button class="quantity-button subtract-quantity" onclick="changeQuantity(this, -1)">-</button>
             </span>
             <div>
                 <p class="sub-pantry-text">${category}</p>
@@ -47,10 +63,11 @@ function addIngredients(event) {
             </div>
         </div>`;
 
-    let border = pantryItem.querySelector('.pantry-text');
-    if (parseInt(quantity) === 1) {
+    const border = pantryItem.querySelector('.pantry-text');
+    const quantityValue = parseInt(quantity, 10);
+    if (quantityValue === 1) {
         border.style.borderTop = '3px solid red';
-    } else if (parseInt(quantity) <= 3) {
+    } else if (quantityValue <= 3) {
         border.style.borderTop = '3px solid orange';
     } else {
         border.style.borderTop = '3px solid green';
@@ -60,33 +77,27 @@ function addIngredients(event) {
     closeWindow(); // Close the form after adding the ingredient
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const ingredientForm = document.getElementById('ingredient-form');
-    if (ingredientForm) {
-        ingredientForm.addEventListener('submit', addIngredients, false);
-    }
-});
-
 function changeQuantity(button, amount) {
-    let counter = button.parentElement.querySelector('.quantity-number');
-    let border = button.closest('.pantry-text');
-    let currentValue = parseInt(counter.textContent);
+    const counter = button.parentElement.querySelector('.quantity-number');
+    const border = button.closest('.pantry-text');
+    let currentValue = parseInt(counter.textContent, 10);
     currentValue += amount;
     if (currentValue < 0) currentValue = 0; // Prevent negative quantity
     counter.textContent = currentValue;
-    if (currentValue <= 3) border.style.borderTop = '3px solid orange';
+
     if (currentValue <= 1) border.style.borderTop = '3px solid red';
-    if (currentValue > 3) border.style.borderTop = '3px solid green';
+    else if (currentValue <= 3) border.style.borderTop = '3px solid orange';
+    else border.style.borderTop = '3px solid green';
 }
 
 function deleteItem(button) {
-    let pantryItem = button.closest('.pantry-item');
+    const pantryItem = button.closest('.pantry-item');
     pantryItem.remove();
 }
 
 function addRow() {
-    let tbody = document.getElementById('table-body');
-    let newRow = document.createElement('tr');
+    const tbody = document.getElementById('table-body');
+    const newRow = document.createElement('tr');
     
     newRow.innerHTML = `
         <td><input type="text" class="grocery-list-entry" aria-label="Ingredient entry"></td>
@@ -97,8 +108,8 @@ function addRow() {
 }
 
 function removeRow() {
-    let tbody = document.getElementById('table-body');
-    let lastRow = tbody.lastElementChild;
+    const tbody = document.getElementById('table-body');
+    const lastRow = tbody.lastElementChild;
     
     if (lastRow) { // Check if there is at least one row to remove
         tbody.removeChild(lastRow);
@@ -110,44 +121,44 @@ function addPreList(event) {
 
     // Define the lists
     const basicGroceryList = [
-      'Milk', 'Eggs', 'Bread', 'Butter', 'Apples', 'Bananas', 'Chicken breasts',
-      'Rice', 'Pasta', 'Tomato sauce', 'Coffee', 'Sugar', 'Salt', 'Pepper'
+        'Milk', 'Eggs', 'Bread', 'Butter', 'Apples', 'Bananas', 'Chicken breasts',
+        'Rice', 'Pasta', 'Tomato sauce', 'Coffee', 'Sugar', 'Salt', 'Pepper'
     ];
 
     const veganGroceryList = [
-      'Almond milk (or other plant-based milk)', 'Tofu', 'Tempeh', 'Lentils',
-      'Chickpeas', 'Black beans', 'Quinoa', 'Brown rice', 'Oats', 'Whole grain bread',
-      'Fresh fruits (e.g., apples, bananas, berries)', 'Fresh vegetables (e.g., spinach, broccoli, carrots)',
-      'Avocados', 'Nuts (e.g., almonds, walnuts)', 'Seeds (e.g., chia seeds, flaxseeds)',
-      'Olive oil', 'Nutritional yeast', 'Soy sauce', 'Tomato sauce', 'Herbs and spices (e.g., garlic, turmeric, cumin)',
-      'Vegan yogurt'
+        'Almond milk (or other plant-based milk)', 'Tofu', 'Tempeh', 'Lentils',
+        'Chickpeas', 'Black beans', 'Quinoa', 'Brown rice', 'Oats', 'Whole grain bread',
+        'Fresh fruits (e.g., apples, bananas, berries)', 'Fresh vegetables (e.g., spinach, broccoli, carrots)',
+        'Avocados', 'Nuts (e.g., almonds, walnuts)', 'Seeds (e.g., chia seeds, flaxseeds)',
+        'Olive oil', 'Nutritional yeast', 'Soy sauce', 'Tomato sauce', 'Herbs and spices (e.g., garlic, turmeric, cumin)',
+        'Vegan yogurt'
     ];
 
     const vegetarianGroceryList = [
-      'Milk', 'Cheese', 'Yogurt', 'Eggs', 'Tofu', 'Lentils', 'Chickpeas',
-      'Black beans', 'Quinoa', 'Brown rice', 'Oats', 'Whole grain bread',
-      'Fresh fruits (e.g., apples, bananas, berries)', 'Fresh vegetables (e.g., spinach, broccoli, carrots)',
-      'Avocados', 'Nuts (e.g., almonds, walnuts)', 'Seeds (e.g., chia seeds, flaxseeds)',
-      'Olive oil', 'Nutritional yeast', 'Tomato sauce', 'Herbs and spices (e.g., garlic, turmeric, cumin)',
-      'Vegetarian pasta'
+        'Milk', 'Cheese', 'Yogurt', 'Eggs', 'Tofu', 'Lentils', 'Chickpeas',
+        'Black beans', 'Quinoa', 'Brown rice', 'Oats', 'Whole grain bread',
+        'Fresh fruits (e.g., apples, bananas, berries)', 'Fresh vegetables (e.g., spinach, broccoli, carrots)',
+        'Avocados', 'Nuts (e.g., almonds, walnuts)', 'Seeds (e.g., chia seeds, flaxseeds)',
+        'Olive oil', 'Nutritional yeast', 'Tomato sauce', 'Herbs and spices (e.g., garlic, turmeric, cumin)',
+        'Vegetarian pasta'
     ];
 
     const glutenFreeGroceryList = [
-      'Gluten-free bread', 'Gluten-free pasta', 'Quinoa', 'Rice', 'Potatoes',
-      'Fresh fruits (e.g., apples, bananas, berries)', 'Fresh vegetables (e.g., spinach, broccoli, carrots)',
-      'Chicken breasts', 'Fish', 'Eggs', 'Nuts (e.g., almonds, walnuts)', 'Seeds (e.g., chia seeds, flaxseeds)',
-      'Olive oil', 'Gluten-free soy sauce', 'Gluten-free oats', 'Canned beans (ensure they are gluten-free)',
-      'Gluten-free baking flour', 'Yogurt (check for gluten-free labeling)', 'Cheese',
-      'Herbs and spices (e.g., garlic, turmeric, cumin)'
+        'Gluten-free bread', 'Gluten-free pasta', 'Quinoa', 'Rice', 'Potatoes',
+        'Fresh fruits (e.g., apples, bananas, berries)', 'Fresh vegetables (e.g., spinach, broccoli, carrots)',
+        'Chicken breasts', 'Fish', 'Eggs', 'Nuts (e.g., almonds, walnuts)', 'Seeds (e.g., chia seeds, flaxseeds)',
+        'Olive oil', 'Gluten-free soy sauce', 'Gluten-free oats', 'Canned beans (ensure they are gluten-free)',
+        'Gluten-free baking flour', 'Yogurt (check for gluten-free labeling)', 'Cheese',
+        'Herbs and spices (e.g., garlic, turmeric, cumin)'
     ];
 
     const ketoGroceryList = [
-      'Avocados', 'Eggs', 'Chicken breasts', 'Beef', 'Salmon', 'Butter', 'Heavy cream',
-      'Cheese (e.g., cheddar, mozzarella)', 'Olive oil', 'Coconut oil', 'Almond flour',
-      'Chia seeds', 'Flaxseeds', 'Spinach', 'Broccoli', 'Cauliflower', 'Zucchini',
-      'Mushrooms', 'Fresh herbs (e.g., basil, parsley)', 'Low-carb vegetables (e.g., bell peppers, green beans)',
-      'Nuts (e.g., almonds, walnuts)', 'Berries (in moderation, e.g., raspberries)',
-      'Sugar-free sweeteners (e.g., stevia, erythritol)', 'Bone broth'
+        'Avocados', 'Eggs', 'Chicken breasts', 'Beef', 'Salmon', 'Butter', 'Heavy cream',
+        'Cheese (e.g., cheddar, mozzarella)', 'Olive oil', 'Coconut oil', 'Almond flour',
+        'Chia seeds', 'Flaxseeds', 'Spinach', 'Broccoli', 'Cauliflower', 'Zucchini',
+        'Mushrooms', 'Fresh herbs (e.g., basil, parsley)', 'Low-carb vegetables (e.g., bell peppers, green beans)',
+        'Nuts (e.g., almonds, walnuts)', 'Berries (in moderation, e.g., raspberries)',
+        'Sugar-free sweeteners (e.g., stevia, erythritol)', 'Bone broth'
     ];
 
     // Get elements
@@ -157,78 +168,79 @@ function addPreList(event) {
     // Choose the list based on the selected value
     let selectedList;
     switch (preselectedList.value) {
-      case 'basic':
-        selectedList = basicGroceryList;
-        break;
-      case 'vegan':
-        selectedList = veganGroceryList;
-        break;
-      case 'vegetarian':
-        selectedList = vegetarianGroceryList;
-        break;
-      case 'gluten-free':
-        selectedList = glutenFreeGroceryList;
-        break;
-      case 'keto':
-        selectedList = ketoGroceryList;
-        break;
-      default:
-        selectedList = [];
+        case 'basic':
+            selectedList = basicGroceryList;
+            break;
+        case 'vegan':
+            selectedList = veganGroceryList;
+            break;
+        case 'vegetarian':
+            selectedList = vegetarianGroceryList;
+            break;
+        case 'gluten-free':
+            selectedList = glutenFreeGroceryList;
+            break;
+        case 'keto':
+            selectedList = ketoGroceryList;
+            break;
+        default:
+            selectedList = [];
     }
 
     // Add rows to the table body
     selectedList.forEach(item => {
-      let newRow = document.createElement('tr');
-      newRow.innerHTML = `
-        <td><input type="text" class="grocery-list-entry" aria-label="Ingredient entry" value="${item}"></td>
-        <td><input type="number" class="grocery-list-entry" aria-label="Quantity entry"></td>
-        <td><input type="checkbox" class="grocery-list-entry" aria-label="Bought checkbox"></td>
-      `;
-      tbody.appendChild(newRow);
+        let newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td><input type="text" class="grocery-list-entry" aria-label="Ingredient entry" value="${item}"></td>
+            <td><input type="number" class="grocery-list-entry" aria-label="Quantity entry"></td>
+            <td><input type="checkbox" class="grocery-list-entry" aria-label="Bought checkbox"></td>
+        `;
+        tbody.appendChild(newRow);
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const listSelection =document.getElementById('list-selection');
-    if (listSelection) {
-        listSelection.addEventListener('submit', addPreList, false);
-    }
-});
-
-function randomPicture() {
-    // Array of image filenames
-    let images = ['onions', 'steak', 'bread', 'milk'];
-    let allDiets = ['vegan', 'vegetarian', 'keto', 'gluten-free']
-    // Array of ingredients with diet information
-    let ingredients = [
-        {name: 'onions', diets: ['vegan', 'vegetarian', 'keto', 'gluten-free']},
-        {name: 'steak', diets: ['keto', 'gluten-free']},
-        {name: 'bread', diets: ['vegan', 'vegetarian', 'keto']},
-        {name: 'milk', diets: ['vegetarian', 'gluten-free']},
+function quizSetUp() {
+    // Define variables, ingredients, and diets
+    const ingredients = [
+        { name: 'an-onion', diets: ['vegan', 'vegetarian', 'keto', 'gluten-free'] },
+        { name: 'steak', diets: ['keto', 'gluten-free'] },
+        { name: 'bread', diets: ['vegan', 'vegetarian', 'keto'] },
+        { name: 'milk', diets: ['vegetarian', 'gluten-free'] }
     ];
 
-    // Generate a random index
-    let i = Math.floor(Math.random() * images.length);
-    let x = Math.floor(Math.random() * allDiets.length);
-    // Create a new image element
-    let img = document.createElement('img');
-    img.className = 'quiz-image';  // Set the class name
-    img.src = `assets/images/${images[i]}.jpeg`; // Set the image source with directory path
-    img.alt = ingredients[i].name; // Set alternative text for accessibility
-    img.setAttribute('aria-label', 'quiz-image'); // Set aria-label attribute for accessibility
+    const diets = ['vegan', 'vegetarian', 'keto', 'gluten-free'];
 
+    // Generate random indices
+    const ingredientsRandomIndex = Math.floor(Math.random() * ingredients.length);
+    const dietsRandomIndex = Math.floor(Math.random() * diets.length);
 
-    // Append the image to the container
-    document.querySelector('.image-container').appendChild(img);
+    // Get random ingredient and diet
+    const randomIngredient = ingredients[ingredientsRandomIndex];
+    const randomIngredientCleanedName = randomIngredient.name.replace(/-/g, ' ');
+    const randomDiet = diets[dietsRandomIndex];
 
-    let question = document.createElement('h3');
-    question.className = "quiz-question";
-    question.innerHTML =`
-        Is ${images[i]} ${allDiets[x]}?
-        `;
-    document.querySelector('.question-container').appendChild(question);
+    // Create a new img element
+    const quizImage = document.createElement('img');
+    quizImage.src = `assets/images/${randomIngredient.name}.jpeg`;
+    quizImage.classList.add('quiz-image');
+    quizImage.alt = randomIngredient.name;
+    quizImage.draggable = false;
+    quizImage.setAttribute('aria-label', 'quiz-image');
 
+    // Create a new h3 element
+    const quizQuestion = document.createElement('h3');
+    quizQuestion.classList.add('quiz-question');
+    quizQuestion.innerHTML = `Is ${randomIngredientCleanedName} ${randomDiet}?`;
+
+    // Get containers
+    const imageContainer = document.querySelector('.image-container');
+    const questionContainer = document.querySelector('.question-container');
+
+    // Clear previous content
+    imageContainer.innerHTML = "";
+    questionContainer.innerHTML = "";
+
+    // Append new elements
+    imageContainer.appendChild(quizImage);
+    questionContainer.appendChild(quizQuestion);
 }
-
-// Ensure the DOM is fully loaded before running the function
-document.addEventListener('DOMContentLoaded', randomPicture);
