@@ -25,35 +25,20 @@
                 <h2 class="general-title">Diet Quiz.</h2>
                 <p class="general-subheader">Swipe right for true or left for false.</p>
             </div>
-            <div id="diet-info-container">
-                <div class="diet-info">
-                    <button class="round-button">+</button>
-                </div>
-                <div class="diet-info">
-                    <button class="round-button">+</button>
-                </div>
-                <div class="diet-info">
-                    <button class="round-button">+</button>
-                </div>
-                <div class="diet-info">
-                    <button class="round-button">+</button>
-                </div>
-            </div>
-            <div id="quiz-container" class="swipe-card">
+            <div id="quiz-container">
                 <div class="image-container"></div>
                 <div class="question-container"></div>
             </div>
             <div class="add-remove-row">
-                <button id="yes-button" class="button-medium">Add</button>
-                <button id="no-button" class="button-medium">Remove</button>
-    
+                <button id="yes-button" class="button-medium">Yes</button>
+                <button id="no-button" class="button-medium">No</button>
             </div>    
             <div id="point-container">
-                <div class="point-counter">
-                    <h3>Correct:</h3>
+                <div class="point-counter" id="correct-counter">
+                    <h3>Correct: <span id="correct-count">0</span></h3>
                 </div>
-                <div class="point-counter">
-                    <h3>Incorrect:</h3>
+                <div class="point-counter" id="incorrect-counter">
+                    <h3>Incorrect: <span id="incorrect-count">0</span></h3>
                 </div>
             </div>
         </section>

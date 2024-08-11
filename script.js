@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     quizSetUp();
-    swipe();
-    observeChanges();
 
     const ingredientForm = document.getElementById('ingredient-form');
     if (ingredientForm) {
@@ -199,6 +197,8 @@ function addPreList(event) {
     });
 }
 
+let currentQuestion = {};
+
 function quizSetUp() {
     // Define variables, ingredients, and diets
     const ingredients = [
@@ -243,4 +243,71 @@ function quizSetUp() {
     // Append new elements
     imageContainer.appendChild(quizImage);
     questionContainer.appendChild(quizQuestion);
+
+    // Store the current question state
+    currentQuestion = {
+        ingredient: randomIngredient,
+        diet: randomDiet
+    };
 }
+
+
+let correctCounter = 0;
+let incorrectCounter = 0;
+
+function quizTest() {
+    // Define buttons
+    const yesButton = document.getElementById('yes-button');
+    const noButton = document.getElementById('no-button');
+
+    // Initialize counters
+    const correctCountElement = document.getElementById('correct-count');
+    const incorrectCountElement = document.getElementById('incorrect-count');
+
+    // Update the counters on the page
+    function updateCounters() {
+        if (correctCountElement) {
+            correctCountElement.textContent = correctCounter;
+        }
+        if (incorrectCountElement) {
+            incorrectCountElement.textContent = incorrectCounter;
+        }
+    }
+
+    // Handle answer logic
+    function handleAnswer(isYes) {
+        const { ingredient, diet } = currentQuestion; // Make sure currentQuestion is defined
+
+        if (isYes) {
+            if (ingredient.diets.includes(diet)) {
+                correctCounter += 1;
+            } else {
+                incorrectCounter += 1;
+            }
+        } else {
+            if (ingredient.diets.includes(diet)) {
+                incorrectCounter += 1;
+            } else {
+                correctCounter += 1;
+            }
+        }
+        
+        updateCounters(); // Update counters on the page
+        quizSetUp(); // Load a new question
+    }
+
+    if (yesButton) {
+        yesButton.addEventListener('click', () => handleAnswer(true));
+    }
+
+    if (noButton) {
+        noButton.addEventListener('click', () => handleAnswer(false));
+    }
+}
+
+// Setup quiz and attach event listeners when the document is ready
+document.addEventListener('DOMContentLoaded', () => {
+    quizSetUp();
+    quizTest();
+});
+
