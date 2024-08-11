@@ -25,7 +25,7 @@
                 <h2 class="general-title">Pantry</h2>
                 <p class="general-subheader">Click each of the cards to add or remove items!</p>
             </div>
-            <div class="content-container" id="pantry-list">
+            <div class="pantry-container" id="pantry-list">
                 <div class="add-remove-item" id="add-ingredient-container" onclick="closeWindow()">
                     <div class="add-remove-text">
                         <span class="add-remove">+</span>
@@ -53,7 +53,7 @@
                         </div>
                         <div id="add-ingredient-buttons">
                             <button type="reset" class="button-medium" id="button-reset">Reset</button>
-                            <button type="submit" class="button-medium" id="button-add">Add</button>
+                            <button type="submit" class="button-medium" id="button-add" onclick="addIngredients(event)">Add</button>
                         </div>
                     </form>
                 </div>                
