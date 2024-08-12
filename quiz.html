@@ -26,13 +26,20 @@
                 <p class="general-subheader">Swipe right for true or left for false.</p>
             </div>
             <div id="quiz-container">
-                <div class="image-container"></div>
-                <div class="question-container"></div>
+                <div id="content-container" class="top-container-quiz">
+                    <h3>Welcome to the diets quiz!</h3>
+                    <p>Test your knowledge on diets. If you think the ingredient belongs to the diet, click yes! Otherwise no!</p>
+                </div>
+                <div id="question-container">
+                    <button class="button-large" id="start-quiz-button">Start Quiz</button>
+                </div>
             </div>
-            <div class="answer-container">
-                <button id="yes-button" class="button-medium">Yes</button>
-                <button id="no-button" class="button-medium">No</button>
-            </div>    
+            <div id="quiz-results">
+                <div class="answer-container">
+                    <button id="yes-button" class="button-medium" onclick ="checkAnswer(true)">Yes</button>
+                    <button id="no-button" class="button-medium" onclick ="checkAnswer(false)">No</button>
+                </div> 
+            </div>
             <div id="point-container">
                 <div class="point-counter" id="correct-counter">
                     <h3>Correct: <span id="correct-count">0</span></h3>

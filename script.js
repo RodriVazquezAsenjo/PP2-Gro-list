@@ -1,17 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-    quizSetUp();
-
-    const ingredientForm = document.getElementById("ingredient-form");
-    if (ingredientForm) {
-        ingredientForm.addEventListener("submit", addIngredients, false);
-    }
-
-    const listSelection = document.getElementById("list-selection");
-    if (listSelection) {
-        listSelection.addEventListener("submit", addPreList, false);
-    }
-});
-
 function openNav() {
     const nav = document.getElementById("nav-bar");
     if (nav.style.height === "80px") {
@@ -196,114 +182,60 @@ function addPreList(event) {
     });
 }
 
-let currentQuestion = {};
-
-function quizSetUp() {
-    // Define variables, ingredients, and diets
+let randomIngredient;
+let randomDiet;
+function loadQuizQuestion () {
+    // Is (an ingredient) (a diet)?
+    // Remove the current content in the containers.
+    let contentContainer = document.getElementById("content-container");
+    let questionContainer = document.getElementById("question-container");
+    contentContainer.innerHTML = "";
+    questionContainer.innerHTML = "";
+    //define variables:
     const ingredients = [
-        { name: "an-onion", diets: ["vegan", "vegetarian", "keto", "gluten-free"] },
-        { name: "steak", diets: ["keto", "gluten-free"] },
-        { name: "bread", diets: ["vegan", "vegetarian", "keto"] },
-        { name: "milk", diets: ["vegetarian", "gluten-free"] }
+        { name: "an onion", diet:["vegan", "vegetarian", "gluten-free", "keto"], address: "assets/images/onion.jpeg"},
+        { name: "bread", diet:["vegan", "vegetarian"], address: "assets/images/bread.jpeg" },
+        { name: "milk", diet:["vegetarian", "gluten-free"], address: "assets/images/milk.jpeg" },
+        { name: "steak", diet:["gluten-free", "keto"], address: "assets/images/steak.jpeg"},
     ];
 
-    const diets = ["vegan", "vegetarian", "keto", "gluten-free"];
+    const diets = ["vegan", "vegetarian", "gluten-free", "keto"];
+    //get a random ingredient & diet from the list
+    randomIngredient = ingredients[Math.floor(Math.random() * ingredients.length)];
+    randomDiet = diets[Math.floor(Math.random() * diets.length)];
+    //load image for the container
+    img = document.createElement("img");
+    img.src = randomIngredient.address;
+    img.alt = randomIngredient.name;
+    img.classList.add("quiz-image");
+    document.getElementById("content-container").appendChild(img);
+    //load question for the container
+    questionContainer.innerHTML = `<h3>Is <span id="random-ingredient">${randomIngredient.name}</span> <span id="random-diet">${randomDiet}</span>?</h3>`;
+}function checkAnswer(isYesButtonClicked) {
+    // Define right and wrong answers
+    const correct = randomIngredient.diet.includes(randomDiet);
 
-    // Generate random indices
-    const ingredientsRandomIndex = Math.floor(Math.random() * ingredients.length);
-    const dietsRandomIndex = Math.floor(Math.random() * diets.length);
+    // Define variables
+    const correctCounter = document.getElementById("correct-count");
+    const incorrectCounter = document.getElementById("incorrect-count");
+    const questionContainer = document.getElementById("question-container");
 
-    // Get random ingredient and diet
-    const randomIngredient = ingredients[ingredientsRandomIndex];
-    const randomIngredientCleanedName = randomIngredient.name.replace(/-/g, " ");
-    const randomDiet = diets[dietsRandomIndex];
+    // If the answer is correct
+    if ((isYesButtonClicked && correct) || (!isYesButtonClicked && !correct)) {
+        correctCounter.textContent = parseInt(correctCounter.textContent) + 1;
+        questionContainer.style.backgroundColor = "var(--clr-button)";
+    } else {
+        incorrectCounter.textContent = parseInt(incorrectCounter.textContent) + 1;
+        questionContainer.style.backgroundColor = "var(--clr-button-red)";
+    }
 
-    // Create a new img element
-    const quizImage = document.createElement("img");
-    quizImage.src = `assets/images/${randomIngredient.name}.jpeg`;
-    quizImage.classList.add("quiz-image");
-    quizImage.alt = randomIngredient.name;
-    quizImage.draggable = false;
-    quizImage.setAttribute("aria-label", "quiz-image");
+    // Reset background color after a delay
+    setTimeout(() => {
+        questionContainer.style.backgroundColor = "";
+    }, 300);
 
-    // Create a new h3 element
-    const quizQuestion = document.createElement("h3");
-    quizQuestion.classList.add("quiz-question");
-    quizQuestion.innerHTML = `Is ${randomIngredientCleanedName} ${randomDiet}?`;
-
-    // Get containers
-    const imageContainer = document.querySelector(".image-container");
-    const questionContainer = document.querySelector(".question-container");
-
-    // Clear previous content
-    imageContainer.innerHTML = "";
-    questionContainer.innerHTML = "";
-
-    // Append new elements
-    imageContainer.appendChild(quizImage);
-    questionContainer.appendChild(quizQuestion);
-
-    // Store the current question state
-    currentQuestion = {
-        ingredient: randomIngredient,
-        diet: randomDiet
-    };
+    // Load a new question
+    loadQuizQuestion();
 }
 
-let correctCounter = 0;
-let incorrectCounter = 0;
-
-function quizTest() {
-    // Define buttons
-    const yesButton = document.getElementById("yes-button");
-    const noButton = document.getElementById("no-button");
-
-    // Initialize counters
-    const correctCountElement = document.getElementById("correct-count");
-    const incorrectCountElement = document.getElementById("incorrect-count");
-
-    // Update the counters on the page
-    function updateCounters() {
-        if (correctCountElement) {
-            correctCountElement.textContent = correctCounter;
-        }
-        if (incorrectCountElement) {
-            incorrectCountElement.textContent = incorrectCounter;
-        }
-    }
-
-    // Handle answer logic
-    function handleAnswer(isYes) {
-        const { ingredient, diet } = currentQuestion; // Make sure currentQuestion is defined
-
-        if (isYes) {
-            if (ingredient.diets.includes(diet)) {
-                correctCounter += 1;
-            } else {
-                incorrectCounter += 1;
-            }
-        } else {
-            if (ingredient.diets.includes(diet)) {
-                incorrectCounter += 1;
-            } else {
-                correctCounter += 1;
-            }
-        }
-        updateCounters(); // Update counters on the page
-        quizSetUp(); // Load a new question
-    }
-
-    if (yesButton) {
-        yesButton.addEventListener("click", () => handleAnswer(true));
-    }
-
-    if (noButton) {
-        noButton.addEventListener("click", () => handleAnswer(false));
-    }
-}
-
-// Setup quiz and attach event listeners when the document is ready
-document.addEventListener("DOMContentLoaded", () => {
-    quizSetUp();
-    quizTest();
-});
+document.getElementById("start-quiz-button").addEventListener("click", loadQuizQuestion);
