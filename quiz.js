@@ -1,6 +1,8 @@
 document.getElementById("start-quiz-button").addEventListener("click", loadQuizQuestion);
 
 let numberOfQuestions = 0;
+let maxNumberOfQuestions = 10;
+let questionLog = []
 
 function loadQuizQuestion() {
     // Get container elements
@@ -22,8 +24,16 @@ function loadQuizQuestion() {
     const diets = ["vegan", "vegetarian", "gluten-free", "keto"];
 
     // Get a random ingredient and diet
-    let randomIngredient = ingredients[Math.floor(Math.random() * ingredients.length)];
-    let randomDiet = diets[Math.floor(Math.random() * diets.length)];
+    let randomIngredient;
+    let randomDiet;
+    let isDuplicate;
+
+    do {
+        randomIngredient = ingredients[Math.floor(Math.random() * ingredients.length)];
+        randomDiet = diets[Math.floor(Math.random() * diets.length)];
+        isDuplicate = questionLog.some(q=>q.ingredient.name === randomIngredient.name && q.diet === randomDiet);
+    }
+    while(isDuplicate);
 
     // Create and append image element
     const img = document.createElement("img");
@@ -40,6 +50,7 @@ function loadQuizQuestion() {
         diet: randomDiet
     };
     numberOfQuestions++;
+    questionLog.push(currentQuestion);
 }
 document.getElementById("yes-button").addEventListener("click", checkAnswer);
 document.getElementById("no-button").addEventListener("click", checkAnswer);
@@ -57,7 +68,7 @@ function checkAnswer (event) {
         incrementIncorrectCount();
     }
     //add a new question
-    if (numberOfQuestions < 10) {
+    if (numberOfQuestions < maxNumberOfQuestions) {
         loadQuizQuestion();
     } else {
         endQuiz();
@@ -82,4 +93,13 @@ function endQuiz() {
     numberOfQuestions = 0;
     document.getElementById("correct-count").innerText = 0;
     document.getElementById("incorrect-count").innerText = 0;
+}
+
+//remove existing combination
+function skipExistingQuestion() {
+    if (questionLog.includes(currentQuestion)) {
+        loadQuizQuestion();
+    } else {
+        return;
+    }
 }
