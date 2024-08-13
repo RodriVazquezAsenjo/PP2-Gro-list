@@ -636,9 +636,7 @@ input {
     padding: var(--padding-medium);
     gap: 25px;
     /*flex-box*/
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display:none;
     /*text*/
     text-align: center;
 }
@@ -665,8 +663,7 @@ input {
     margin: 0 auto;
     gap: 25px;
     /*flex-box*/
-    display: flex;
-    justify-content: center;
+    display: none;
     /*text*/
     text-align: center;
 

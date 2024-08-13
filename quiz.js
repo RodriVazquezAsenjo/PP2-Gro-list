@@ -1,4 +1,5 @@
 document.getElementById("start-quiz-button").addEventListener("click", startQuiz);
+document.addEventListener("DOMContentLoaded", maxRoundsPossible);
 
 let numberOfQuestions = 0;
 let maxNumberOfQuestions;
@@ -11,6 +12,30 @@ function startQuiz() {
     numberOfQuestions = 0;
     questionLog = [];
     loadQuizQuestion();
+    document.getElementById("quiz-results").style.display = "flex";
+    document.getElementById("quiz-results").style.flexDirection = "column";
+    document.getElementById("quiz-results").style.justifyContent = "center";
+    document.getElementById("point-container").style.display = "flex";
+    document.getElementById("point-container").style.flexDirection = "column";
+    document.getElementById("point-container").style.justifyContent = "center";
+    document.getElementById("point-container").style.flexDirection = "row";
+    document.getElementById("point-container").style.flexWrap = "wrap";
+}
+
+function maxRoundsPossible() {
+    let maxRounds = document.getElementById("number-of-rounds");
+    let ingredients = [
+        { name: "an onion", diet: ["vegan", "vegetarian", "gluten-free", "keto"], address: "assets/images/onion.jpeg" },
+        { name: "bread", diet: ["vegan", "vegetarian"], address: "assets/images/bread.jpeg" },
+        { name: "milk", diet: ["vegetarian", "gluten-free"], address: "assets/images/milk.jpeg" },
+        { name: "steak", diet: ["gluten-free", "keto"], address: "assets/images/steak.jpeg" }
+    ];
+
+    let diets = ["vegan", "vegetarian", "gluten-free", "keto"];
+
+    maxRounds.max = ingredients.length * diets.length;
+
+    return maxRounds;
 }
 
 function loadQuizQuestion() {
@@ -112,4 +137,6 @@ function endQuiz() {
     document.getElementById("correct-count").innerText = 0;
     document.getElementById("incorrect-count").innerText = 0;
     document.getElementById("restart-button").addEventListener("click", startQuiz);
+    document.getElementById("quiz-results").style.display = "none";
+    document.getElementById("point-container").style.display = "none";
 }
