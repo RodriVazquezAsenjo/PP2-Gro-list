@@ -9,7 +9,7 @@ const itemCategory = document.querySelector("[data-item-category]"); // Input fi
 const itemExpiration = document.querySelector("[data-item-expiration]"); // Input field for the item expiration date
 const addItemDetails = document.querySelector("[data-add-item-details]"); // Button to submit the form
 
-//Local Storage
+// Local Storage
 const LOCAL_STORAGE_KEY = "pantry.items"; // Key for the local storage
 // Initialize items array
 let items = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
@@ -31,30 +31,48 @@ newItemForm.addEventListener("submit", (e) => {
     renderPantry();
     saveItems();
     newItemForm.style.display = "none"; // Hide the form
-    // Optionally, reset form fields after adding an item
-    newItemForm.reset();
+    newItemForm.reset(); // Reset form fields after adding an item
 });
 
-//Modify the quantity of an item
+// Modify the quantity of an item
 itemsContainer.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (e.target.hasAttribute("data-add-quantity")) {
-        const item = e.target.closest(".pantry-item");
-        const index = items.indexOf(item);
-        items[index].quantity++;
+    const pantryItem = e.target.closest(".pantry-item");
+    if (pantryItem) {
+        const index = pantryItem.dataset.index;
+        let quantity = items[index].quantity;
+
+        if (e.target.hasAttribute("data-add-quantity")) {
+            items[index].quantity++;
+        } else if (e.target.hasAttribute("data-subtract-quantity")) {
+            if (items[index].quantity > 0) {
+                items[index].quantity--;
+            }
+        }
+
+        // Update border color based on current quantity
+        if (items[index].quantity < 2) {
+            pantryItem.style.borderTop = "2px solid red";
+        } else if (items[index].quantity < 5) {
+            pantryItem.style.borderTop = "2px solid orange";
+        } else {
+            pantryItem.style.borderTop = "2px solid green";
+        }
+
         renderPantry();
         saveItems();
-    } else if (e.target.hasAttribute("data-subtract-quantity")) {
-        const item = e.target.closest(".pantry-item");
-        const index = items.indexOf(item);
-        items[index].quantity--;
+    }
+
+    // Handle item deletion
+    if (e.target.hasAttribute("data-delete-item")) {
+        const index = e.target.closest(".pantry-item").dataset.index;
+        items.splice(index, 1);
         renderPantry();
         saveItems();
     }
 });
-// Event delegation for deleting items
 
-//Save the items to local storage
+
+// Save the items to local storage
 function saveItems() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(items));
 }
@@ -62,8 +80,9 @@ function saveItems() {
 // Create and add an item to the list
 function createItem() {
     const item = {
+        id: Date.now().toString(), // Unique ID for each item
         name: itemName.value,
-        quantity: itemQuantity.value,
+        quantity: parseInt(itemQuantity.value, 10), // Ensure quantity is a number
         category: itemCategory.value,
         expiration: itemExpiration.value
     };
@@ -73,9 +92,10 @@ function createItem() {
 // Render the pantry items
 function renderPantry() {
     clearItems(itemsContainer);
-    items.forEach((item) => {
+    items.forEach((item, index) => {
         const pantryItem = document.createElement("div");
         pantryItem.classList.add("pantry-item");
+        pantryItem.dataset.index = index; // Add data-index attribute for reference
         pantryItem.innerHTML = `
         <div class="counter-container">
             <p class="button-close-pantry-item" data-delete-item>+</p>
@@ -85,7 +105,7 @@ function renderPantry() {
             <span class="ingredient-quantity">
                 <button class="quantity-button add-quantity" data-add-quantity>+</button>
                 <p class="quantity-number">${item.quantity}</p>
-                <button class="quantity-button substract-quantity" data-subtract-quantity">-</button>
+                <button class="quantity-button subtract-quantity" data-subtract-quantity>-</button>
             </span>
             <div>
                 <p class="sub-pantry-text">${item.category}</p>
@@ -94,7 +114,6 @@ function renderPantry() {
         </div>
         `;
         itemsContainer.appendChild(pantryItem);
-        saveItems();
     });
 }
 
