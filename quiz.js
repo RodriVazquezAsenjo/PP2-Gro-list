@@ -1,8 +1,17 @@
-document.getElementById("start-quiz-button").addEventListener("click", loadQuizQuestion);
+document.getElementById("start-quiz-button").addEventListener("click", startQuiz);
 
 let numberOfQuestions = 0;
-let maxNumberOfQuestions = 10;
-let questionLog = []
+let maxNumberOfQuestions;
+let questionLog = [];
+let currentQuestion;
+let maxUniqueQuestions;
+
+function startQuiz() {
+    maxNumberOfQuestions = document.getElementById("number-of-rounds").value;
+    numberOfQuestions = 0;
+    questionLog = [];
+    loadQuizQuestion();
+}
 
 function loadQuizQuestion() {
     // Get container elements
@@ -23,12 +32,20 @@ function loadQuizQuestion() {
 
     const diets = ["vegan", "vegetarian", "gluten-free", "keto"];
 
+    maxUniqueQuestions = ingredients.length * diets.length;
+
     // Get a random ingredient and diet
     let randomIngredient;
     let randomDiet;
     let isDuplicate;
 
+
     do {
+        // Avoid infinite loop
+        if (questionLog.length >= maxUniqueQuestions) {
+            endQuiz();
+            return;
+        }
         randomIngredient = ingredients[Math.floor(Math.random() * ingredients.length)];
         randomDiet = diets[Math.floor(Math.random() * diets.length)];
         isDuplicate = questionLog.some(q=>q.ingredient.name === randomIngredient.name && q.diet === randomDiet);
@@ -68,7 +85,7 @@ function checkAnswer (event) {
         incrementIncorrectCount();
     }
     //add a new question
-    if (numberOfQuestions < maxNumberOfQuestions) {
+    if (numberOfQuestions <= maxNumberOfQuestions) {
         loadQuizQuestion();
     } else {
         endQuiz();
@@ -90,16 +107,9 @@ function endQuiz() {
     contentContainer.innerHTML = "";
     questionContainer.innerHTML = "";
     contentContainer.innerHTML = `<h3>Quiz ended! You got ${document.getElementById("correct-count").innerText} out of ${numberOfQuestions} correct!</h3>`;
+    questionContainer.innerHTML = `<button id="restart-button" class="button-large">Restart Quiz</button>`;
     numberOfQuestions = 0;
     document.getElementById("correct-count").innerText = 0;
     document.getElementById("incorrect-count").innerText = 0;
-}
-
-//remove existing combination
-function skipExistingQuestion() {
-    if (questionLog.includes(currentQuestion)) {
-        loadQuizQuestion();
-    } else {
-        return;
-    }
+    document.getElementById("restart-button").addEventListener("click", startQuiz);
 }

@@ -611,12 +611,24 @@ input {
 #question-container {
     /*dimensions*/
     height: 75px;
+    gap: 15px;
     /*flex-box*/
     display: flex;
     justify-content: center;
     align-items: center;
     /*box*/
     border-radius: var(--button-border-large);
+}
+#number-of-rounds {
+    height: var(--button-height-large);
+    width: 75px;
+    background-color: var(--clr-background);
+    border-radius: var(--button-border-large);
+    box-shadow:var(--box-shadow);
+    border: none;
+    text-align: center;
+    font-size: var(--font-size-button);
+    transition: transform 0.3s ease;
 }
 #quiz-results {
     /*position*/
