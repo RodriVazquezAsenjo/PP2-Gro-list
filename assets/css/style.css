@@ -592,9 +592,10 @@ input {
     justify-content: center;
 }
 
-.top-container-quiz h2 p {
+.top-container-quiz > h3, .top-container-quiz > p {
     /*position*/
-    padding: 0 var(--padding-medium);
+    padding: var(--padding-medium);
+    padding-bottom: 0;
 }
 
 .quiz-image {

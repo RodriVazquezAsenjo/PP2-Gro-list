@@ -1,3 +1,6 @@
+
+document.getElementById("list-selection").addEventListener("click", addIngredients);
+
 function openNav() {
     const nav = document.getElementById("nav-bar");
     if (nav.style.height === "80px") {
@@ -181,61 +184,3 @@ function addPreList(event) {
         tbody.appendChild(newRow);
     });
 }
-
-let randomIngredient;
-let randomDiet;
-function loadQuizQuestion () {
-    // Is (an ingredient) (a diet)?
-    // Remove the current content in the containers.
-    let contentContainer = document.getElementById("content-container");
-    let questionContainer = document.getElementById("question-container");
-    contentContainer.innerHTML = "";
-    questionContainer.innerHTML = "";
-    //define variables:
-    const ingredients = [
-        { name: "an onion", diet:["vegan", "vegetarian", "gluten-free", "keto"], address: "assets/images/onion.jpeg"},
-        { name: "bread", diet:["vegan", "vegetarian"], address: "assets/images/bread.jpeg" },
-        { name: "milk", diet:["vegetarian", "gluten-free"], address: "assets/images/milk.jpeg" },
-        { name: "steak", diet:["gluten-free", "keto"], address: "assets/images/steak.jpeg"},
-    ];
-
-    const diets = ["vegan", "vegetarian", "gluten-free", "keto"];
-    //get a random ingredient & diet from the list
-    randomIngredient = ingredients[Math.floor(Math.random() * ingredients.length)];
-    randomDiet = diets[Math.floor(Math.random() * diets.length)];
-    //load image for the container
-    img = document.createElement("img");
-    img.src = randomIngredient.address;
-    img.alt = randomIngredient.name;
-    img.classList.add("quiz-image");
-    document.getElementById("content-container").appendChild(img);
-    //load question for the container
-    questionContainer.innerHTML = `<h3>Is <span id="random-ingredient">${randomIngredient.name}</span> <span id="random-diet">${randomDiet}</span>?</h3>`;
-}function checkAnswer(isYesButtonClicked) {
-    // Define right and wrong answers
-    const correct = randomIngredient.diet.includes(randomDiet);
-
-    // Define variables
-    const correctCounter = document.getElementById("correct-count");
-    const incorrectCounter = document.getElementById("incorrect-count");
-    const questionContainer = document.getElementById("question-container");
-
-    // If the answer is correct
-    if ((isYesButtonClicked && correct) || (!isYesButtonClicked && !correct)) {
-        correctCounter.textContent = parseInt(correctCounter.textContent) + 1;
-        questionContainer.style.backgroundColor = "var(--clr-button)";
-    } else {
-        incorrectCounter.textContent = parseInt(incorrectCounter.textContent) + 1;
-        questionContainer.style.backgroundColor = "var(--clr-button-red)";
-    }
-
-    // Reset background color after a delay
-    setTimeout(() => {
-        questionContainer.style.backgroundColor = "";
-    }, 300);
-
-    // Load a new question
-    loadQuizQuestion();
-}
-
-document.getElementById("start-quiz-button").addEventListener("click", loadQuizQuestion);
