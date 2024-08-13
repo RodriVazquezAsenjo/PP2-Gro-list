@@ -12,7 +12,7 @@
             <a href="index.html" aria-label="link to go to the homepage">Home</a>
             <a href="pantry.html" aria-label="link to go to the pantry page">Pantry</a>
             <a href="grocery.html" aria-label="link to go to the grocery list page">Grocery List</a>
-            <a href="account.html" aria-label="link to go to the account page">Account</a>
+            <a href="quiz.html" aria-label="link to go to the quiz page">Quiz</a>
         </nav>
         <div id="nav-edge"></div>
         <div>
@@ -25,44 +25,65 @@
                 <h2 class="general-title">Pantry</h2>
                 <p class="general-subheader">Click each of the cards to add or remove items!</p>
             </div>
-            <div class="pantry-container" id="pantry-list">
-                <div class="add-remove-item" id="add-ingredient-container" onclick="closeWindow()">
+            <div class="pantry-container" data-items-container>
+                <div id="add-item-button" data-add-item-button>
                     <div class="add-remove-text">
-                        <span class="add-remove">+</span>
+                        <button class="add-remove">+</button>
                         <h3 class="pantry-title">Add Item</h3>
                     </div>
-                </div>
-                <div id="form-container">
-                    <form id="ingredient-form">
-                        <p class="button-close" onclick="closeWindow()">+</p>
-                        <div class="form-entry">
-                            <label class="add-ingredient-label" for="add-ingredient-text">Add your ingredient:</label>
-                            <input type="text" id="add-ingredient-text" required>
-                        </div>
-                        <div class="form-entry">
-                            <label class="add-ingredient-label" for="add-ingredient-quantity">Quantity:</label>
-                            <input type="number" id="add-ingredient-quantity" required>
-                        </div>
-                        <div class="form-entry">
-                            <label class="add-ingredient-label" for="add-ingredient-category">Category (optional):</label>
-                            <input type="text" id="add-ingredient-category">
-                        </div>
-                        <div class="form-entry">
-                            <label class="add-ingredient-label" for="add-ingredient-date">Expiry Date (optional):</label>
-                            <input type="date" id="add-ingredient-date">
-                        </div>
-                        <div id="add-ingredient-buttons">
-                            <button type="reset" class="button-medium" id="button-reset">Reset</button>
-                            <button type="submit" class="button-medium" id="button-add" onclick="addIngredients(event)">Add</button>
-                        </div>
-                    </form>
-                </div>                
+                </div>               
             </div>
+<!-- Form container -->
+<div id="form-container" data-new-item-form>
+    <form id="ingredient-form">
+        <!-- Close button inside the form -->
+        <p class="button-close" data-close-window>+</p>
+        <!-- Form fields -->
+        <div class="form-entry">
+            <label class="add-ingredient-label" for="add-ingredient-text">Add your ingredient:</label>
+            <input type="text" id="add-ingredient-text" data-item-name required>
+        </div>
+        <div class="form-entry">
+            <label class="add-ingredient-label" for="add-ingredient-quantity">Quantity:</label>
+            <input type="number" id="add-ingredient-quantity" data-item-quantity required>
+        </div>
+        <div class="form-entry">
+            <label class="add-ingredient-label" for="add-ingredient-category">Category (optional):</label>
+            <input type="text" id="add-ingredient-category" data-item-category>
+        </div>
+        <div class="form-entry">
+            <label class="add-ingredient-label" for="add-ingredient-expiration">Expiry Date (optional):</label>
+            <input type="date" id="add-ingredient-expiration" data-item-expiration>
+        </div>
+        <div id="add-ingredient-buttons">
+            <button type="reset" class="button-medium" id="button-reset">Reset</button>
+            <button type="submit" class="button-medium" id="button-add" data-add-item-details>Add</button>
+        </div>
+    </form>
+</div>
+
         </section>
     </main>
     <footer>
         <!-- Footer content can be added here -->
     </footer>
-    <script src="script.js"></script>
+    <script src="pantry.js"></script>
+    <template>
+        <div class="counter-container">
+            <p class="button-close-pantry-item" onclick="deleteItem(this)">+</p>
+            <h3 class="pantry-title"></h3>
+        </div>
+        <div class="pantry-text">
+            <span class="ingredient-quantity">
+                <button class="quantity-button add-quantity" onclick="changeQuantity(this, 1)">+</button>
+                <p class="quantity-number">${quantity}</p>
+                <button class="quantity-button substract-quantity" onclick="changeQuantity(this, -1)">-</button>
+            </span>
+            <div>
+                <p class="sub-pantry-text"></p>
+                <p class="sub-pantry-text"></p>
+            </div>
+        </div>
+    </template>
 </body>
 </html>

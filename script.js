@@ -1,6 +1,3 @@
-
-document.getElementById("list-selection").addEventListener("click", addIngredients);
-
 function openNav() {
     const nav = document.getElementById("nav-bar");
     if (nav.style.height === "80px") {
@@ -21,65 +18,6 @@ function closeWindow() {
         ingredientForm.classList.add("visible");
         ingredientForm.style.opacity = "1";
     }
-}
-
-function addIngredients(event) {
-    event.preventDefault();
-
-    const ingredient = document.getElementById("add-ingredient-text").value;
-    const quantity = document.getElementById("add-ingredient-quantity").value;
-    const category = document.getElementById("add-ingredient-category").value;
-    const date = document.getElementById("add-ingredient-date").value;
-
-    const pantryItem = document.createElement("div");
-    pantryItem.className = "pantry-item";
-    pantryItem.innerHTML = `
-        <div class="counter-container">
-            <p class="button-close-pantry-item" onclick="deleteItem(this)">+</p>
-            <h3 class="pantry-title">${ingredient}</h3>
-        </div>
-        <div class="pantry-text">
-            <span class="ingredient-quantity">
-                <button class="quantity-button add-quantity" onclick="changeQuantity(this, 1)">+</button>
-                <p class="quantity-number">${quantity}</p>
-                <button class="quantity-button substract-quantity" onclick="changeQuantity(this, -1)">-</button>
-            </span>
-            <div>
-                <p class="sub-pantry-text">${category}</p>
-                <p class="sub-pantry-text">${date}</p>
-            </div>
-        </div>`;
-
-    const border = pantryItem.querySelector(".pantry-text");
-    const quantityValue = parseInt(quantity, 10);
-    if (quantityValue === 1) {
-        border.style.borderTop = "3px solid red";
-    } else if (quantityValue <= 3) {
-        border.style.borderTop = "3px solid orange";
-    } else {
-        border.style.borderTop = "3px solid green";
-    }
-
-    document.getElementById("pantry-list").appendChild(pantryItem);
-    closeWindow(); // Close the form after adding the ingredient
-}
-
-function changeQuantity(button, amount) {
-    const counter = button.parentElement.querySelector(".quantity-number");
-    const border = button.closest(".pantry-text");
-    let currentValue = parseInt(counter.textContent, 10);
-    currentValue += amount;
-    if (currentValue < 0) {currentValue = 0;} // Prevent negative quantity
-    counter.textContent = currentValue;
-
-    if (currentValue <= 1) {border.style.borderTop = "3px solid red";}
-    else if (currentValue <= 3) {border.style.borderTop = "3px solid orange";}
-    else {border.style.borderTop = "3px solid green";}
-}
-
-function deleteItem(button) {
-    const pantryItem = button.closest(".pantry-item");
-    pantryItem.remove();
 }
 
 function addRow() {

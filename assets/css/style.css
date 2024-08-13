@@ -223,7 +223,7 @@ header {
     text-align: right;
 }
 
-.add-remove-item {
+#add-item-button {
     width: 300px;
     height: 150px;
     display: flex;
@@ -236,7 +236,7 @@ header {
     transition: transform 0.3s ease;
 }
 
-.add-remove-item:hover {
+#add-item-button:hover {
     transform: scale(1.1);
 }
 
@@ -341,19 +341,13 @@ header {
     left: 50%;
     transform: translate(-50%);
     margin: auto;
-    opacity: 0;
-    visibility: hidden;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     background-color: var(--clr-card);
     border-radius: var(--button-border-large);
     box-shadow:var(--box-shadow);
     transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-#form-container.visible {
-    visibility: visible;
 }
 
 .button-close {
