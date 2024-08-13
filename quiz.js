@@ -1,5 +1,7 @@
 document.getElementById("start-quiz-button").addEventListener("click", loadQuizQuestion);
 
+let numberOfQuestions = 0;
+
 function loadQuizQuestion() {
     // Get container elements
     const contentContainer = document.getElementById("content-container");
@@ -37,18 +39,29 @@ function loadQuizQuestion() {
         ingredient: randomIngredient,
         diet: randomDiet
     };
+    numberOfQuestions++;
 }
 document.getElementById("yes-button").addEventListener("click", checkAnswer);
 document.getElementById("no-button").addEventListener("click", checkAnswer);
 function checkAnswer (event) {
+    // Check if the answer is yes or no.
     let userAnswer = event.target.id === "yes-button" ? true : false;
+    //set the true statement
     let correctStatement = currentQuestion.ingredient.diet.includes(currentQuestion.diet);
+    //if the user answer and the statement have the same truthiness
     if (userAnswer && correctStatement) {
         incrementCorrectCount();
-    } else {
+    } 
+    // if the user answer and the statement do not have the same truthiness
+    else {
         incrementIncorrectCount();
     }
-    loadQuizQuestion();
+    //add a new question
+    if (numberOfQuestions < 10) {
+        loadQuizQuestion();
+    } else {
+        endQuiz();
+    }
 }
 function incrementCorrectCount () {
     let oldScore = parseInt(document.getElementById("correct-count").innerText);
@@ -58,4 +71,15 @@ function incrementCorrectCount () {
 function incrementIncorrectCount () {
     let oldScore = parseInt(document.getElementById("incorrect-count").innerText);
     document.getElementById("incorrect-count").innerText = ++oldScore
+}
+
+function endQuiz() {
+    let contentContainer = document.getElementById("content-container");
+    let questionContainer = document.getElementById("question-container");
+    contentContainer.innerHTML = "";
+    questionContainer.innerHTML = "";
+    contentContainer.innerHTML = `<h3>Quiz ended! You got ${document.getElementById("correct-count").innerText} out of ${numberOfQuestions} correct!</h3>`;
+    numberOfQuestions = 0;
+    document.getElementById("correct-count").innerText = 0;
+    document.getElementById("incorrect-count").innerText = 0;
 }
