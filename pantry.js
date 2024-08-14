@@ -8,7 +8,6 @@ const itemQuantity = document.querySelector("[data-item-quantity]"); // Input fi
 const itemCategory = document.querySelector("[data-item-category]"); // Input field for the item category
 const itemExpiration = document.querySelector("[data-item-expiration]"); // Input field for the item expiration date
 const addItemDetails = document.querySelector("[data-add-item-details]"); // Button to submit the form
-
 // Local Storage
 const LOCAL_STORAGE_KEY = "pantry.items"; // Key for the local storage
 // Initialize items array
@@ -37,40 +36,36 @@ newItemForm.addEventListener("submit", (e) => {
 // Modify the quantity of an item
 itemsContainer.addEventListener("click", (e) => {
     const pantryItem = e.target.closest(".pantry-item");
+    const pantryText = e.target.closest(".pantry-text");
     if (pantryItem) {
         const index = pantryItem.dataset.index;
-        let quantity = items[index].quantity;
-
         if (e.target.hasAttribute("data-add-quantity")) {
             items[index].quantity++;
         } else if (e.target.hasAttribute("data-subtract-quantity")) {
-            if (items[index].quantity > 0) {
+            if (items[index].quantity > 1) {
                 items[index].quantity--;
             }
         }
-
-        // Update border color based on current quantity
-        if (items[index].quantity < 2) {
-            pantryItem.style.borderTop = "2px solid red";
-        } else if (items[index].quantity < 5) {
-            pantryItem.style.borderTop = "2px solid orange";
+        // Update border color based on quantity
+        const quantityValue = items[index].quantity;
+        if (quantityValue < 2) {
+            pantryText.style.borderTop = "3px solid red";
+        } else if (quantityValue < 4) {
+            pantryText.style.borderTop = "3px solid orange";
         } else {
-            pantryItem.style.borderTop = "2px solid green";
+            pantryText.style.borderTop = "3px solid green";
         }
-
         renderPantry();
         saveItems();
     }
-
     // Handle item deletion
     if (e.target.hasAttribute("data-delete-item")) {
         const index = e.target.closest(".pantry-item").dataset.index;
-        items.splice(index, 1);
+        items.splice(index, 1); // Remove item from array
         renderPantry();
         saveItems();
     }
 });
-
 
 // Save the items to local storage
 function saveItems() {

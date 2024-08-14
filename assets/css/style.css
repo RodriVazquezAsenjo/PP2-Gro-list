@@ -386,7 +386,7 @@ header {
 }
 
 #button-reset {
-    background-color: var(--clr-background);
+    background-color: var(--clr-backgroundx);
     color: inherit;
 }
 
@@ -461,7 +461,7 @@ header {
     background-color: var(--clr-button);
 }
 
-.substract-quantity:hover {
+.subtract-quantity:hover {
     color: var(--clr-background);
     background-color: var(--clr-button-red);
 }
