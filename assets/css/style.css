@@ -277,10 +277,11 @@ header {
     font-size: var(--font-size-large);
 }
 
-.pantry-text, .add-remove-text {
+.pantry-text, .add-item-text {
     padding: 5px var(--padding-small);
     width: 90%;
     display: flex;
+    border-top: var(--clr-button);
     justify-content: space-between;
     align-items: flex-end;
     transition: 0.3s ease;

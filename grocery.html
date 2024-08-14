@@ -19,52 +19,56 @@
             <button id="nav-button" onclick="openNav()">+</button>
         </div>
     </header>
-    <section class="general-container" id="dashboard-section">
-        <div class="title-container">
-            <h2 class="general-title">Grocery List.</h2>
-            <p class="general-subheader">Easily add your favorite items to this grocery list, or add from the pre-selected lists!</p>
-            <div>
-                <form id="list-selection">
-                    <select name="pre-list" id="pre-list" aria-label="Select a pre-defined list">
-                        <option value="" disabled selected>---</option>
-                        <option value="basic">Basic</option>
-                        <option value="vegan">Vegan</option>
-                        <option value="vegetarian">Vegetarian</option>
-                        <option value="keto">Keto</option>
-                        <option value="gluten-free">Gluten-free</option>
-                    </select>
-                    <button type="submit" class="button-medium">Add</button>
-                </form>
+    <main>
+        <section class="general-container">
+            <div class="title-container">
+                <h2 class="general-title">Grocery List.</h2>
+                <p class="general-subheader">Easily add your favorite items to this grocery list, or add from the pre-selected lists!</p>
+                <div>
+                    <form id="list-selection" data-pre-list-form>
+                        <select name="pre-list" id="pre-list" aria-label="Select a pre-defined list">
+                            <option value="" disabled selected>---</option>
+                            <option value="basic">Basic</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="keto">Keto</option>
+                            <option value="gluten-free">Gluten-free</option>
+                        </select>
+                        <button type="submit" class="button-medium" data-add-list-button>Add</button>
+                    </form>
+                </div>
             </div>
-        </div>
-        <table id="grocery-list-table">
-            <thead class="table-head">
-                <tr id="head-row">
-                    <th><input type="text" class="grocery-list-heading" value="Ingredient" aria-label="Ingredient column heading"></th>
-                    <th><input type="text" class="grocery-list-heading" value="Quantity" aria-label="Quantity column heading"></th>
-                    <th><input type="text" class="grocery-list-heading" value="Bought" aria-label="Bought column heading"></th>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-                <tr>
-                    <td><input type="text" class="grocery-list-entry" aria-label="Ingredient entry"></td>
-                    <td><input type="number" class="grocery-list-entry" aria-label="Quantity entry"></td>
-                    <td><input type="checkbox" class="grocery-list-entry" aria-label="Bought checkbox"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" class="grocery-list-entry" aria-label="Ingredient entry"></td>
-                    <td><input type="number" class="grocery-list-entry" aria-label="Quantity entry"></td>
-                    <td><input type="checkbox" class="grocery-list-entry" aria-label="Bought checkbox"></td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="add-remove-row">
-            <button id="add-row" class="button-medium" onclick="addRow ()">Add</button>
-            <button id="remove-row" class="button-medium" onclick="removeRow ()">Remove</button>
+            <table id="grocery-list-table">
+                <thead class="table-head">
+                    <tr id="head-row">
+                        <th><input type="text" class="grocery-list-heading" value="Ingredient" aria-label="Ingredient column heading"></th>
+                        <th><input type="text" class="grocery-list-heading" value="Quantity" aria-label="Quantity column heading"></th>
+                        <th><input type="text" class="grocery-list-heading" value="Bought" aria-label="Bought column heading"></th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <tr>
+                        <td><input type="text" class="grocery-list-entry" aria-label="Ingredient entry"></td>
+                        <td><input type="number" class="grocery-list-entry" aria-label="Quantity entry"></td>
+                        <td><input type="checkbox" class="grocery-list-entry" aria-label="Bought checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="grocery-list-entry" aria-label="Ingredient entry"></td>
+                        <td><input type="number" class="grocery-list-entry" aria-label="Quantity entry"></td>
+                        <td><input type="checkbox" class="grocery-list-entry" aria-label="Bought checkbox"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="add-remove-row">
+                <button id="add-row" class="button-medium" onclick="addRow ()">Add</button>
+                <button id="remove-row" class="button-medium" onclick="removeRow ()">Remove</button>
+    
+            </div>    
+        </section>
+    </main>
+    <footer>
 
-        </div>    
-    </section>
-        
+    </footer>        
     <script src="script.js"></script>
 </body>
 </html>

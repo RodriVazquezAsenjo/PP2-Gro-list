@@ -39,7 +39,7 @@ function removeRow() {
         tbody.removeChild(lastRow);
     }
 }
-
+document.getElementById("list-selection").addEventListener("submit", addPreList);
 function addPreList(event) {
     event.preventDefault(); // Prevent the form from submitting and refreshing the page
 
@@ -50,39 +50,38 @@ function addPreList(event) {
     ];
 
     const veganGroceryList = [
-        "Almond milk (or other plant-based milk)", "Tofu", "Tempeh", "Lentils",
+        "Almond milk", "Tofu", "Tempeh", "Lentils",
         "Chickpeas", "Black beans", "Quinoa", "Brown rice", "Oats", "Whole grain bread",
-        "Fresh fruits (e.g., apples, bananas, berries)", "Fresh vegetables (e.g., spinach, broccoli, carrots)",
-        "Avocados", "Nuts (e.g., almonds, walnuts)", "Seeds (e.g., chia seeds, flaxseeds)",
-        "Olive oil", "Nutritional yeast", "Soy sauce", "Tomato sauce", "Herbs and spices (e.g., garlic, turmeric, cumin)",
+        "Fresh fruits", "Fresh vegetables",
+        "Avocados", "Nuts", "Seeds",
+        "Olive oil", "Nutritional yeast", "Soy sauce", "Tomato sauce", "Herbs and spices",
         "Vegan yogurt"
     ];
 
     const vegetarianGroceryList = [
         "Milk", "Cheese", "Yogurt", "Eggs", "Tofu", "Lentils", "Chickpeas",
         "Black beans", "Quinoa", "Brown rice", "Oats", "Whole grain bread",
-        "Fresh fruits (e.g., apples, bananas, berries)", "Fresh vegetables (e.g., spinach, broccoli, carrots)",
-        "Avocados", "Nuts (e.g., almonds, walnuts)", "Seeds (e.g., chia seeds, flaxseeds)",
-        "Olive oil", "Nutritional yeast", "Tomato sauce", "Herbs and spices (e.g., garlic, turmeric, cumin)",
+        "Fresh fruits", "Fresh vegetables",
+        "Avocados", "Nuts", "Seeds",
+        "Olive oil", "Nutritional yeast", "Tomato sauce", "Herbs and spices",
         "Vegetarian pasta"
     ];
 
     const glutenFreeGroceryList = [
         "Gluten-free bread", "Gluten-free pasta", "Quinoa", "Rice", "Potatoes",
-        "Fresh fruits (e.g., apples, bananas, berries)", "Fresh vegetables (e.g., spinach, broccoli, carrots)",
-        "Chicken breasts", "Fish", "Eggs", "Nuts (e.g., almonds, walnuts)", "Seeds (e.g., chia seeds, flaxseeds)",
-        "Olive oil", "Gluten-free soy sauce", "Gluten-free oats", "Canned beans (ensure they are gluten-free)",
-        "Gluten-free baking flour", "Yogurt (check for gluten-free labeling)", "Cheese",
-        "Herbs and spices (e.g., garlic, turmeric, cumin)"
+        "Fresh fruits", "Fresh vegetables",
+        "Chicken breasts", "Fish", "Eggs", "Nuts", "Seeds",
+        "Olive oil", "Gluten-free soy sauce", "Gluten-free oats", "Canned beans",
+        "Gluten-free baking flour", "Yogurt", "Cheese",
+        "Herbs and spices"
     ];
 
     const ketoGroceryList = [
         "Avocados", "Eggs", "Chicken breasts", "Beef", "Salmon", "Butter", "Heavy cream",
-        "Cheese (e.g., cheddar, mozzarella)", "Olive oil", "Coconut oil", "Almond flour",
+        "Cheese", "Olive oil", "Coconut oil", "Almond flour",
         "Chia seeds", "Flaxseeds", "Spinach", "Broccoli", "Cauliflower", "Zucchini",
-        "Mushrooms", "Fresh herbs (e.g., basil, parsley)", "Low-carb vegetables (e.g., bell peppers, green beans)",
-        "Nuts (e.g., almonds, walnuts)", "Berries (in moderation, e.g., raspberries)",
-        "Sugar-free sweeteners (e.g., stevia, erythritol)", "Bone broth"
+        "Mushrooms", "Fresh herb", "Low-carb vegetables",
+        "Nuts", "Berries", "Sugar-free sweeteners", "Bone broth"
     ];
 
     // Get elements

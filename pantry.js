@@ -36,24 +36,14 @@ newItemForm.addEventListener("submit", (e) => {
 // Modify the quantity of an item
 itemsContainer.addEventListener("click", (e) => {
     const pantryItem = e.target.closest(".pantry-item");
-    const pantryText = e.target.closest(".pantry-text");
     if (pantryItem) {
         const index = pantryItem.dataset.index;
         if (e.target.hasAttribute("data-add-quantity")) {
             items[index].quantity++;
         } else if (e.target.hasAttribute("data-subtract-quantity")) {
-            if (items[index].quantity > 1) {
+            if (items[index].quantity > 0) {
                 items[index].quantity--;
             }
-        }
-        // Update border color based on quantity
-        const quantityValue = items[index].quantity;
-        if (quantityValue < 2) {
-            pantryText.style.borderTop = "3px solid red";
-        } else if (quantityValue < 4) {
-            pantryText.style.borderTop = "3px solid orange";
-        } else {
-            pantryText.style.borderTop = "3px solid green";
         }
         renderPantry();
         saveItems();
