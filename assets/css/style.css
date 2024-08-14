@@ -78,7 +78,6 @@ header {
 }
 
 #nav-bar {
-    width: 100vw;
     height: 0;
     visibility: hidden;
     display: flex;
@@ -481,17 +480,22 @@ header {
 .button-close-pantry-item:hover {
     color: var(--clr-button);
 }
+#grocery-list-container {
+    /*dimensions*/
+    overflow-x: scroll;
+}
 #grocery-list-table {
     /*position*/
     margin: 0 auto;
     padding: var(--padding-medium);
     /*dimensions*/
-    width: 80%;
+    max-width: 80vw;
     max-width: 1200px;
     /*box*/
     background-color: var(--clr-card);
     border-radius: var(--button-border-large);
     box-shadow:var(--box-shadow);
+    overflow-x: auto;
     /*text*/
     text-align: center;
 }
@@ -721,4 +725,10 @@ footer > div {
 .footer-list-item:hover {
     text-decoration: underline;
     transform: scale(1.1);
+}
+
+@media screen and (min-width: 1000px) {
+    #small-screen-message {
+        display: none;
+    }
 }
