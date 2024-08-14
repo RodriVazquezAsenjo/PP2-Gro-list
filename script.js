@@ -1,3 +1,11 @@
+//Global Constats
+
+//Global Variables
+
+//Event Listeners
+document.getElementById("list-selection").addEventListener("submit", addPreList);
+
+//Functions
 function openNav() {
     const nav = document.getElementById("nav-bar");
     if (nav.style.height === "80px") {
@@ -39,7 +47,6 @@ function removeRow() {
         tbody.removeChild(lastRow);
     }
 }
-document.getElementById("list-selection").addEventListener("submit", addPreList);
 function addPreList(event) {
     event.preventDefault(); // Prevent the form from submitting and refreshing the page
 

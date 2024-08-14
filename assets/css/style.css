@@ -59,13 +59,15 @@ p {
 
 body {
     background-color: var(--clr-background);
-    max-width: 1850px;
-    margin-right: auto;
+    max-width: 1800px;
     margin-left: auto;
+    margin-right: auto;
 }
 
 header {
-    position: fixed;
+    position: sticky;
+    margin-left: auto;
+    margin-right: auto;
     z-index: 1000;
     top: 0;
     left: 0;
@@ -684,8 +686,6 @@ input {
     transition: 0.3s ease;
 }
 footer {
-    position: absolute;
-    left: 0;
     width: 100vw;
     min-height: 200px;
     background-color: var(--clr-card);
