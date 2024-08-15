@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 // Global Variables
 const itemsContainer = document.querySelector("[data-items-container]"); // Container for the pantry items
 const addItemButton = document.querySelector("[data-add-item-button]"); // Button to show the form
@@ -7,7 +8,6 @@ const itemName = document.querySelector("[data-item-name]"); // Input field for 
 const itemQuantity = document.querySelector("[data-item-quantity]"); // Input field for the item quantity
 const itemCategory = document.querySelector("[data-item-category]"); // Input field for the item category
 const itemExpiration = document.querySelector("[data-item-expiration]"); // Input field for the item expiration date
-const addItemDetails = document.querySelector("[data-add-item-details]"); // Button to submit the form
 // Local Storage
 const LOCAL_STORAGE_KEY = "pantry.items"; // Key for the local storage
 // Initialize items array

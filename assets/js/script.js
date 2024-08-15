@@ -1,6 +1,6 @@
+/*jshint esversion: 6 */
 //Event Listeners
-document
-  .getElementById("list-selection")
+document.getElementById("list-selection")
   .addEventListener("submit", addPreList);
 
 //Functions
