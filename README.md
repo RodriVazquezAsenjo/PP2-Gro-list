@@ -134,9 +134,11 @@ user-friendly experience throughout the quiz session.
 
 At the skeleton plane the layout of the website is designed. Wireframes can be used for this:
 
-<img src="assets/readme-images/wireframes1.png" style="width:6.5in;height:3.38889in" />
-
-<img src="assets/readme-images/wireframes2.png" style="width:6.5in;height:3.38889in" />
+<img src="assets/images/wireframes/home.png" style="width:6.5in;height:3.38889in" />
+<img src="assets/images/wireframes/dashboard.png" style="width:6.5in;height:3.38889in" />
+<img src="assets/images/wireframes/grocery-list.png" style="width:6.5in;height:3.38889in" />
+<img src="assets/images/wireframes/pantry.png" style="width:6.5in;height:3.38889in" />
+<img src="assets/images/wireframes/quiz.png" style="width:6.5in;height:3.38889in" />
 
 ### **5. Surface Plane**
 
