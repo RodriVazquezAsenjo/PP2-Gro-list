@@ -6,7 +6,11 @@
     <meta name="description" content="GroList is a simple web application that allows users to keep track of their pantry, grocery list, and diet knowledge.">
     <meta name="keywords" content="GroList, pantry, grocery list, diet, food, ingredients, recipes">
     <link href="assets/css/style.css" rel="stylesheet">
-    <title>Pantry Page</title>
+    <title>Quiz</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/faicon_io//apple-touch-icon.png">
+     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/faicon_io//favicon-32x32.png">
+     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/faicon_io//favicon-16x16.png">
+     <link rel="manifest" href="assets/images/faicon_io/site.webmanifest">
 </head>
 <body>
     <header>
@@ -22,48 +26,35 @@
         </div>
     </header>
     <main>
-        <section class="general-container" id="dashboard-section">
+        <section class="general-container">
             <div class="title-container">
-                <h2 class="general-title">Pantry</h2>
-                <p class="general-subheader">Click each of the cards to add or remove items!</p>
+                <h2 class="general-title">Diet Quiz.</h2>
+                <p class="general-subheader">Test your knowledge on diets. If you think the ingredient belongs to the diet, click yes! Otherwise no!</p>
             </div>
-            <div class="pantry-container" data-items-container>
-                <div id="add-item-button" data-add-item-button>
-                    <div class="add-item-text">
-                        <button class="add-remove">+</button>
-                        <h3 class="pantry-title">Add Item</h3>
-                    </div>
-                </div>               
+            <div id="quiz-container">
+                <div id="content-container" class="top-container-quiz">
+                    <h3>Welcome to the diets quiz!</h3>
+                    <p>Choose the number of questions in the input box.</p>
+                </div>
+                <form id="question-container">
+                    <button class="button-large" id="start-quiz-button">Start Quiz</button>
+                    <input type="number" id="number-of-rounds" name="number-of-rounds" value="10" min="1">
+                </form>
             </div>
-<!-- Form container -->
-<div id="form-container" data-new-item-form>
-    <form id="ingredient-form">
-        <!-- Close button inside the form -->
-        <p class="button-close" data-close-window>+</p>
-        <!-- Form fields -->
-        <div class="form-entry">
-            <label class="add-ingredient-label" for="add-ingredient-text">Add your ingredient:</label>
-            <input type="text" id="add-ingredient-text" data-item-name required>
-        </div>
-        <div class="form-entry">
-            <label class="add-ingredient-label" for="add-ingredient-quantity">Quantity:</label>
-            <input type="number" id="add-ingredient-quantity" data-item-quantity required>
-        </div>
-        <div class="form-entry">
-            <label class="add-ingredient-label" for="add-ingredient-category">Category (optional):</label>
-            <input type="text" id="add-ingredient-category" data-item-category>
-        </div>
-        <div class="form-entry">
-            <label class="add-ingredient-label" for="add-ingredient-expiration">Expiry Date (optional):</label>
-            <input type="date" id="add-ingredient-expiration" data-item-expiration>
-        </div>
-        <div id="add-ingredient-buttons">
-            <button type="reset" class="button-medium" id="button-reset">Reset</button>
-            <button type="submit" class="button-medium" id="button-add" data-add-item-details>Add</button>
-        </div>
-    </form>
-</div>
-
+            <div id="quiz-results">
+                <div class="answer-container">
+                    <button id="yes-button" class="button-medium" onclick ="checkAnswer(true)">Yes</button>
+                    <button id="no-button" class="button-medium" onclick ="checkAnswer(false)">No</button>
+                </div> 
+            </div>
+            <div id="point-container">
+                <div class="point-counter" id="correct-counter">
+                    <h3>Correct: <span id="correct-count">0</span></h3>
+                </div>
+                <div class="point-counter" id="incorrect-counter">
+                    <h3>Incorrect: <span id="incorrect-count">0</span></h3>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
@@ -71,13 +62,10 @@
             <h4>Useful Links:</h4>
             <ul>
                 <li class="footer-list-item">
-                    <a href="https://www.bbcgoodfood.com/" aria-label="BBC Good Food">BBC Good Food</a>
+                    <a href="https://github.com/RodriVazquezAsenjo" aria-label="GitHub" target="_blank" rel="noopener">Author's GitHub</a>
                 </li>
                 <li class="footer-list-item">
-                    <a href="https://github.com/RodriVazquezAsenjo" aria-label="GitHub">Author's GitHub</a>
-                </li>
-                <li class="footer-list-item">
-                    <a href="https://www.linkedin.com/in/rodrigo-vazquez-asenjo/" aria-label="LinkedIn">Author's LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/rodrigo-vazquez-asenjo/" aria-label="LinkedIn" target="_blank" rel="noopener">Author's LinkedIn</a>
                 </li>
                 <li class="footer-list-item">
                     <a href="index.html" aria-label="link to go to the homepage">Home</a>
@@ -88,8 +76,9 @@
             <h4>Disclaimer:</h4>
             <p>This website is for educational purposes only. No data is stored or shared.</p>
             <p>This website should not take any information as legitimate, and users should do their own research</p>
+		    </div>
     </footer>
-    <script src="pantry.js"></script>
     <script src="script.js"></script>
+    <script src="quiz.js"></script>
 </body>
 </html>

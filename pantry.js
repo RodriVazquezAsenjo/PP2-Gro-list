@@ -15,73 +15,73 @@ let items = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
 
 // Show the form when the addItemButton is clicked
 addItemButton.addEventListener("click", () => {
-    newItemForm.style.display = "flex";
+  newItemForm.style.display = "flex";
 });
 
 // Hide the form when the close button is clicked
 closeWindowButton.addEventListener("click", () => {
-    newItemForm.style.display = "none";
+  newItemForm.style.display = "none";
 });
 
 // Handle form submission
 newItemForm.addEventListener("submit", (e) => {
-    e.preventDefault(); // Prevent form from submitting the traditional way
-    createItem();
-    renderPantry();
-    saveItems();
-    newItemForm.style.display = "none"; // Hide the form
-    newItemForm.reset(); // Reset form fields after adding an item
+  e.preventDefault(); // Prevent form from submitting the traditional way
+  createItem();
+  renderPantry();
+  saveItems();
+  newItemForm.style.display = "none"; // Hide the form
+  newItemForm.reset(); // Reset form fields after adding an item
 });
 
 // Modify the quantity of an item
 itemsContainer.addEventListener("click", (e) => {
-    const pantryItem = e.target.closest(".pantry-item");
-    if (pantryItem) {
-        const index = pantryItem.dataset.index;
-        if (e.target.hasAttribute("data-add-quantity")) {
-            items[index].quantity++;
-        } else if (e.target.hasAttribute("data-subtract-quantity")) {
-            if (items[index].quantity > 0) {
-                items[index].quantity--;
-            }
-        }
-        renderPantry();
-        saveItems();
+  const pantryItem = e.target.closest(".pantry-item");
+  if (pantryItem) {
+    const index = pantryItem.dataset.index;
+    if (e.target.hasAttribute("data-add-quantity")) {
+      items[index].quantity++;
+    } else if (e.target.hasAttribute("data-subtract-quantity")) {
+      if (items[index].quantity > 0) {
+        items[index].quantity--;
+      }
     }
-    // Handle item deletion
-    if (e.target.hasAttribute("data-delete-item")) {
-        const index = e.target.closest(".pantry-item").dataset.index;
-        items.splice(index, 1); // Remove item from array
-        renderPantry();
-        saveItems();
-    }
+    renderPantry();
+    saveItems();
+  }
+  // Handle item deletion
+  if (e.target.hasAttribute("data-delete-item")) {
+    const index = e.target.closest(".pantry-item").dataset.index;
+    items.splice(index, 1); // Remove item from array
+    renderPantry();
+    saveItems();
+  }
 });
 
 // Save the items to local storage
 function saveItems() {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(items));
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(items));
 }
 
 // Create and add an item to the list
 function createItem() {
-    const item = {
-        id: Date.now().toString(), // Unique ID for each item
-        name: itemName.value,
-        quantity: parseInt(itemQuantity.value, 10), // Ensure quantity is a number
-        category: itemCategory.value,
-        expiration: itemExpiration.value
-    };
-    items.push(item);
+  const item = {
+    id: Date.now().toString(), // Unique ID for each item
+    name: itemName.value,
+    quantity: parseInt(itemQuantity.value, 10), // Ensure quantity is a number
+    category: itemCategory.value,
+    expiration: itemExpiration.value,
+  };
+  items.push(item);
 }
 
 // Render the pantry items
 function renderPantry() {
-    clearItems(itemsContainer);
-    items.forEach((item, index) => {
-        const pantryItem = document.createElement("div");
-        pantryItem.classList.add("pantry-item");
-        pantryItem.dataset.index = index; // Add data-index attribute for reference
-        pantryItem.innerHTML = `
+  clearItems(itemsContainer);
+  items.forEach((item, index) => {
+    const pantryItem = document.createElement("div");
+    pantryItem.classList.add("pantry-item");
+    pantryItem.dataset.index = index; // Add data-index attribute for reference
+    pantryItem.innerHTML = `
         <div class="counter-container">
             <p class="button-close-pantry-item" data-delete-item>+</p>
             <h3 class="pantry-title">${item.name}</h3>
@@ -98,15 +98,15 @@ function renderPantry() {
             </div>
         </div>
         `;
-        itemsContainer.appendChild(pantryItem);
-    });
+    itemsContainer.appendChild(pantryItem);
+  });
 }
 
 // Clear items from the pantry, keeping the very first child
 function clearItems(container) {
-    while (container.children.length > 1) {
-        container.removeChild(container.lastChild);
-    }
+  while (container.children.length > 1) {
+    container.removeChild(container.lastChild);
+  }
 }
 
 // Initial call to render the pantry
