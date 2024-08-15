@@ -423,13 +423,19 @@ The site adheres as intended on every device.
 
 5. <u>Fixed bugs</u>
 
-#### Logo Flickering in Safari
-While the image wasn't captured, the logo on the top left of the website glitched on safari. The glitch involved happened when hovering over the logo, as the logo would flicker. It originally was meant to change colors to darkorange and to increase in size. In order to fix this, prefixes were added through prefixer: (https://autoprefixer.github.io/). Additionally, I changed the dimension format from % to rem on every font size and used transform: scale() for the increase in size. This solved the issue.
+#### Incorrect counter 
+The incorrect counter was increasing everytime the negative button was pressed. This has been sorted. 
+
+#### Yes No Quiz buttons
+The buttons would reload questions when pressed even if the quiz finished. This was sorted by removing the buttons on the end screen.
 
 6. <u>Unfixed bugs</u>
 
 #### Grocery List quantity can go negative
 Due to lack of time, the grocery list quantity cells can go negative. To avoid this, a minimum value can be added to the input selector.
+
+#### Quiz round input
+The user can type a number higher than 16 in the quiz round selector and hit enter, while the quiz won't exceed 16 questions, the user might be misguided by the amount of questions that can be input. This could be fixed with JS. 
 
 ## **Deployment**
 
