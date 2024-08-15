@@ -1,7 +1,4 @@
-document.addEventListener("DOMContentLoaded", updateMaxRoundsPossible);
-document.getElementById("start-quiz-button").addEventListener("click", startQuiz);
-document.getElementById("yes-button").addEventListener("click", checkAnswer);
-document.getElementById("no-button").addEventListener("click", checkAnswer);
+/*jshint esversion: 6 */
 // Define ingredients and diets
 const ingredients = [
   { name: "an onion", diet: ["vegan", "vegetarian", "gluten-free", "keto"], address: "assets/images/onion.jpeg" },
@@ -17,6 +14,12 @@ let maxNumberOfQuestions;
 let questionLog = [];
 let currentQuestion;
 let maxUniqueQuestions;
+
+
+document.addEventListener("DOMContentLoaded", updateMaxRoundsPossible);
+document.getElementById("start-quiz-button").addEventListener("click", startQuiz);
+document.getElementById("yes-button").addEventListener("click", checkAnswer);
+document.getElementById("no-button").addEventListener("click", checkAnswer);
 
 function startQuiz() {
   maxNumberOfQuestions = parseInt(document.getElementById("number-of-rounds").value, 10);
@@ -117,9 +120,8 @@ function endQuiz() {
   numberOfQuestions = 0;
   document.getElementById("correct-count").innerText = 0;
   document.getElementById("incorrect-count").innerText = 0;
-  document
-    .getElementById("restart-button")
-    .addEventListener("click", startQuiz);
+  document.getElementById("restart-button")
+  .addEventListener("click", startQuiz);
   document.getElementById("quiz-results").style.display = "none";
   document.getElementById("point-container").style.display = "none";
 }
