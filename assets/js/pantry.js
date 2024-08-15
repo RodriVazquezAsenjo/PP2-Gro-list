@@ -1,29 +1,51 @@
 /*jshint esversion: 6 */
 // Global Variables
-const itemsContainer = document.querySelector("[data-items-container]"); // Container for the pantry items
-const addItemButton = document.querySelector("[data-add-item-button]"); // Button to show the form
-const closeWindowButton = document.querySelector("[data-close-window]"); // Button to close the form
-const newItemForm = document.querySelector("[data-new-item-form]"); // Form container
-const itemName = document.querySelector("[data-item-name]"); // Input field for the item name
-const itemQuantity = document.querySelector("[data-item-quantity]"); // Input field for the item quantity
-const itemCategory = document.querySelector("[data-item-category]"); // Input field for the item category
-const itemExpiration = document.querySelector("[data-item-expiration]"); // Input field for the item expiration date
-// Local Storage
-const LOCAL_STORAGE_KEY = "pantry.items"; // Key for the local storage
+ // Container for the pantry items
+const itemsContainer = document.querySelector("[data-items-container]");
+ // Button to show the form
+const addItemButton = document.querySelector("[data-add-item-button]");
+ // Button to close the form
+const closeWindowButton = document.querySelector("[data-close-window]");
+ // Form container
+const newItemForm = document.querySelector("[data-new-item-form]");
+ // Input field for the item name
+const itemName = document.querySelector("[data-item-name]");
+ // Input field for the item quantity
+const itemQuantity = document.querySelector("[data-item-quantity]");
+ // Input field for the item category
+const itemCategory = document.querySelector("[data-item-category]");
+ // Input field for the item expiration date
+const itemExpiration = document.querySelector("[data-item-expiration]");
+// Modify the quantity of an item
+itemsContainer.addEventListener("click", modifyQuantity);
+/**
+ * Create a key for the local storage
+ */
+const LOCAL_STORAGE_KEY = "pantry.items";
 // Initialize items array
+/**
+ * Retrieve the items from local storage or create an empty array
+ */
 let items = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
 
-// Show the form when the addItemButton is clicked
+/**
+ * Adds an event listener to the add item button to display the form
+ */
 addItemButton.addEventListener("click", () => {
   newItemForm.style.display = "flex";
 });
 
-// Hide the form when the close button is clicked
+/**
+ * Adds an event listener to the close button to hide the form
+ */
 closeWindowButton.addEventListener("click", () => {
   newItemForm.style.display = "none";
 });
 
-// Handle form submission
+/**
+ * @param {Event} e
+ * Adds an event listener to the form to create a new item, render the pantry, save the items, hide the form, and reset the form fields
+ */
 newItemForm.addEventListener("submit", (e) => {
   e.preventDefault(); // Prevent form from submitting the traditional way
   createItem();
@@ -33,8 +55,12 @@ newItemForm.addEventListener("submit", (e) => {
   newItemForm.reset(); // Reset form fields after adding an item
 });
 
-// Modify the quantity of an item
-itemsContainer.addEventListener("click", (e) => {
+/**
+ * 
+ * @param {Event} e 
+ * Modifies the quantity of an item, deletes an item, and saves the items
+ */
+function modifyQuantity(e) {
   const pantryItem = e.target.closest(".pantry-item");
   if (pantryItem) {
     const index = pantryItem.dataset.index;
@@ -55,14 +81,17 @@ itemsContainer.addEventListener("click", (e) => {
     renderPantry();
     saveItems();
   }
-});
-
-// Save the items to local storage
+}
+/**
+ * Saves the items to local storage
+ */
 function saveItems() {
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(items));
 }
 
-// Create and add an item to the list
+/**
+ * Create a new item and add it to the items array
+ */
 function createItem() {
   const item = {
     id: Date.now().toString(), // Unique ID for each item
@@ -74,7 +103,9 @@ function createItem() {
   items.push(item);
 }
 
-// Render the pantry items
+/**
+ * Renders the pantry items
+ */
 function renderPantry() {
   clearItems(itemsContainer);
   items.forEach((item, index) => {
@@ -102,7 +133,10 @@ function renderPantry() {
   });
 }
 
-// Clear items from the pantry, keeping the very first child
+/**
+ * 
+ * @param {HTMLElement} container 
+ */
 function clearItems(container) {
   while (container.children.length > 1) {
     container.removeChild(container.lastChild);

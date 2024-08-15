@@ -1,8 +1,13 @@
 /*jshint esversion: 6 */
-//Event Listeners
+/**
+ * Event listener to add a preselected list of items to the grocery list, calling the function addPreList when the form is submitted.
+ */
 document.getElementById("list-selection")
   .addEventListener("submit", addPreList);
-
+/**
+ * Event listener to open the navigation bar when the menu icon is clicked, calling the function openNav.
+ * The pertinent elements have an onclick attribute in the HTML.
+ */
 //Functions
 function openNav() {
   const nav = document.getElementById("nav-bar");
@@ -14,7 +19,10 @@ function openNav() {
     nav.style.visibility = "visible";
   }
 }
-
+/**
+ * This function allows the user to close forms by clicking the close button.
+ * The pertinent elements have an onclick attribute in the HTML.
+ */
 function closeWindow() {
   const ingredientForm = document.getElementById("form-container");
   if (ingredientForm.classList.contains("visible")) {
@@ -25,6 +33,9 @@ function closeWindow() {
     ingredientForm.style.opacity = "1";
   }
 }
+/**
+ * This function allows the user to add a new row to the grocery list table.
+ */
 
 function addRow() {
   const tbody = document.getElementById("table-body");
@@ -36,7 +47,9 @@ function addRow() {
     `;
   tbody.appendChild(newRow);
 }
-
+/**
+ * This function allows the user to remove the last row from the grocery list table.
+ */
 function removeRow() {
   const tbody = document.getElementById("table-body");
   const lastRow = tbody.lastElementChild;
@@ -46,6 +59,9 @@ function removeRow() {
     tbody.removeChild(lastRow);
   }
 }
+/**
+ * This function allows the user to add preset lists based on diet to the grocery list table.
+ */
 function addPreList(event) {
   event.preventDefault(); // Prevent the form from submitting and refreshing the page
 
