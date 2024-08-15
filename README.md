@@ -31,9 +31,9 @@ serving those objectives are identified.
 
 - **User Needs**:
 
-  - **Client:** To create a simple and attractive website which is intuitive and allows users to navigate comfortably.
+  - **Client:** To create a simple and attractive website which is intuitive and allows users to navigate comfortably while meeting their grocery needs.
 
-  - **Customer:** To be able to navigate within the page intuitively, and to provoke positive reactions to grocery endoavours whihc are usually not attractive. 
+  - **Customer:** To be able to navigate within the page intuitively, and to provoke positive reactions to grocery endoavours which are usually not attractive. 
 
 - **Business Objectives**: To provide an easy tool which can enhance grocery shopping.
 
@@ -74,15 +74,15 @@ The fourth page will be a quiz testing your knowledge on diets.
 ### **3. Structure Plane**
 
 On the structure plane, the ways in which the user navigates the website
-are defined, where will the user land, what will be his options from
-where he lands and further on.
+are defined, where will the user land, what will be their options from
+where they lands and further on.
 
-As the user accesses the website, he’ll be landing on the home page,
-where he will be greeted by a slogan clearly portraying a sense of
+As the user accesses the website, they will be landing on the home page,
+where they will be greeted by a slogan clearly portraying a sense of
 simplicity and an access button that will take him to the dashboard. Here, he’ll notice the navigation bar at the
 top, present in all pages, which will be able to take him to a pantry
 page, grocery page and a quiz page. On the dashboard you'll find three cards to take you to the pantry, grocery and quiz pages.
-At the bottom the footer has links to the authors github and linkedin, a bbc good food link and the home page. Togehter with a disclaimer. 
+At the bottom the footer has links to the authors github and linkedin and the home page. Togehter with a disclaimer. 
 
 The Structure Plane of the Pantry page is designed to facilitate user interaction 
 with their pantry inventory in a straightforward and intuitive manner. The header 
@@ -148,7 +148,7 @@ Font used: Inter.
 
 Color scheme used:
 
-	--clr-background: white;
+  --clr-background: white;
 	
   --clr-accent: #1E6249;
   
@@ -234,11 +234,11 @@ This project has been completed using the following:
 
 - Code Prettier
 
-- iOS Notes
+- Balsamic Wireframes
 
 - Prefixer
 
-- Codepen
+- Favicon generator
 
 ### Features to add in the future.
 
@@ -258,11 +258,11 @@ Testing of this website has been done as follows:
 
 - Google Lighthouse: Measures the performance, accessibility, best practices and SEO. Each of the sites were tested both in mobile and desktop. In all pages, the metrics for desktop and mobile were over 90. Google lighthouse can be acessed by right clicking the website, selecting "Inspect" and clicking on the "Lighthouse" tab, where an "analyse page load" button is available. 
 
-- [HTML Validator](https://validator.w3.org/): Checks for any errors in the HTML code. After running for index.html, mentor.html and contact.html no errors were found. A warning was highlighted where a section didn't have a header, however a div is used instead as recommended. 
+- [HTML Validator](https://validator.w3.org/): Checks for any errors in the HTML code. No errors or warnigns were highlighted.
 
-- [CSS Validator](https://jigsaw.w3.org/css-validator/): Checks for any errors in the CSS code. After running for style.css no errors were found. 
+- [CSS Validator](https://jigsaw.w3.org/css-validator/): Checks for any errors in the CSS code. After running for style.css no errors or warnings were highlighted. 
 
-- [JSHint](https://jshint.com/): Checks for any errors in the JavaScript. After running for all JavaScript files, no errors were found. 
+- [JSHint](https://jshint.com/): Checks for any errors in the JavaScript. After running for all JavaScript files, no errors were found. Warnings regarding functions not being called were found, however, these were only for onclick attributes in html.
 
 2.  <u>Browser compatibility:</u>
 
@@ -428,12 +428,8 @@ While the image wasn't captured, the logo on the top left of the website glitche
 
 6. <u>Unfixed bugs</u>
 
-#### Menu bar text too large on Firefox
-When testing the website on Firefox, the navigation menu when collapsed into the burger menu has the text larger than any other browser. While it doesn't impede legibility, further padding would be appropriate to have a less cluttered navigation bar. Unfortunately, this bug can't be fixed in time for the submission of the projet. However, the strategy to solve it would be to understand the inheritance of paddings and widths in case Firefox reads them differently to Chrome and should this not be the case either a media query or smaller font-size would be specified. 
-
-#### Placeholder in textarea
-While the code has been removed for the placeholder, the deployed website is still showing the placeholder. This is happening at the time of writing before submission. New updates to the deployment might remove this placeholder
-
+#### Grocery List quantity can go negative
+Due to lack of time, the grocery list quantity cells can go negative. To avoid this, a minimum value can be added to the input selector.
 
 ## **Deployment**
 
@@ -504,6 +500,11 @@ the developer.
 ### Imagery:
 
 Images have been obtained from iStock.
+Images have been obtained from the following links:
+  
+([<u>[https://www.istockphoto.com/es/vector/haga-cola-para-ir-a-la-tienda-de-comestibles-gente-con-carritos-de-la-compra-y-una-gm1356078844-430350164])</u>](https://www.istockphoto.com/es/vector/haga-cola-para-ir-a-la-tienda-de-comestibles-gente-con-carritos-de-la-compra-y-una-gm1356078844-430350164))
+([<u>[https://www.istockphoto.com/es/vector/refrigerador-abierto-o-refrigerador-como-electrodom%C3%A9stico-para-el-almacenamiento-de-gm1552630827-526510147])</u>](https://www.istockphoto.com/es/vector/refrigerador-abierto-o-refrigerador-como-electrodom%C3%A9stico-para-el-almacenamiento-de-gm1552630827-526510147))
+([<u>[https://www.istockphoto.com/es/vector/ilustraci%C3%B3n-vectorial-de-personas-que-se-comunican-en-busca-de-ideas-resoluci%C3%B3n-de-gm1789901645-547639970])</u>](https://www.istockphoto.com/es/vector/ilustraci%C3%B3n-vectorial-de-personas-que-se-comunican-en-busca-de-ideas-resoluci%C3%B3n-de-gm1789901645-547639970))
 
 ### Code:
 
