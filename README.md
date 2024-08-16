@@ -73,62 +73,13 @@ The fourth page will be a quiz testing your knowledge on diets.
 
 ### **3. Structure Plane**
 
-On the structure plane, the ways in which the user navigates the website
-are defined, where will the user land, what will be their options from
-where they lands and further on.
+The website provides a structured navigation experience across its pages, beginning with the home page where users are welcomed by a slogan and an access button that directs them to the dashboard. This dashboard features three cards for easy navigation to the pantry, grocery list, and quiz pages. A persistent navigation bar at the top of each page allows users to move between these main sections, and a footer at the bottom provides links to the author's GitHub and LinkedIn profiles, as well as a disclaimer about the site's educational purpose.
 
-As the user accesses the website, they will be landing on the home page,
-where they will be greeted by a slogan clearly portraying a sense of
-simplicity and an access button that will take him to the dashboard. Here, he’ll notice the navigation bar at the
-top, present in all pages, which will be able to take him to a pantry
-page, grocery page and a quiz page. On the dashboard you'll find three cards to take you to the pantry, grocery and quiz pages.
-At the bottom the footer has links to the authors github and linkedin and the home page. Togehter with a disclaimer. 
+The Pantry page is designed for efficient management of pantry inventory. The header includes navigation links and a button to access a side menu. The main content area is split into a title section with instructions and a functional section where users can view and manage their pantry items. An add-item button opens a form overlay where users can enter details about new items. The footer mirrors the links and disclaimer found on other pages.
 
-The Structure Plane of the Pantry page is designed to facilitate user interaction 
-with their pantry inventory in a straightforward and intuitive manner. The header 
-section contains a navigation bar with links to essential pages, including the 
-homepage, pantry, grocery list, and quiz, along with a button for accessing a 
-side navigation menu. In the main content area, the page is divided into two main 
-parts: a title section and a functional section. The title section features a 
-heading and a brief instruction for users on managing pantry items. The 
-functional section includes a container for displaying pantry items, and a button 
-to add new items, which triggers a form overlay. The form, located in the form 
-container, allows users to input details for new pantry items, including name, 
-quantity, category, and expiration date. The form includes reset and submit 
-buttons for user convenience. The footer offers additional useful links and a 
-disclaimer about the educational purpose of the website. This structured layout 
-ensures a clean and efficient user experience, making it easy for users to manage 
-their pantry items and navigate the site.
+The Grocery List page is organized into sections for ease of use, starting with a header that includes navigation and a side menu button. The title section introduces the page and includes a form for selecting predefined grocery lists. The functional section features a table for tracking grocery items and their quantities, with buttons to add or remove rows. The footer provides consistent links and a disclaimer about the site’s data handling and educational use.
 
-The Structure Plane of the Grocery List page is meticulously crafted to offer 
-users a clear and organized interface for managing their grocery needs. The page 
-is divided into distinct sections for ease of navigation and functionality. At 
-the top, the header includes a navigation bar with links to other sections of the 
-site, such as the homepage, pantry, grocery list, and quiz page, along with a 
-button to open a side navigation menu. The main content area is segmented into a 
-title section and a functional section. The title section introduces the page's 
-purpose and includes a form for users to select and add pre-defined grocery lists. 
-The functional section presents a table for users to input and track grocery items, 
-quantities, and purchase status. Below the table, buttons for adding and removing 
-rows offer additional customization options. The footer provides links to useful 
-resources and a disclaimer about the website’s purpose and data handling. The 
-page's layout is responsive, ensuring a user-friendly experience across different 
-devices.
-
-The Structure Plane of the quiz page is designed to provide a logical and 
-intuitive layout for users, ensuring a seamless interaction with the quiz 
-functionality. At the top of the page, a header section features the 
-application’s title or logo, setting the context and purpose of the quiz. Below 
-this, the quiz control panel allows users to input the number of rounds they wish 
-to play and start the quiz, with built-in validation to enforce input constraints 
-between 1 and 16. The central content area dynamically displays the current quiz 
-question alongside a relevant ingredient image and interactive answer buttons 
-("Yes" and "No"). The structure is completed with a score display section that 
-provides real-time updates on correct and incorrect answers. At the end of the 
-quiz, a results summary and restart button offer users a clear view of their 
-performance and the option to start a new game. The layout is responsive, 
-ensuring usability across various devices, and designed to maintain a 
-user-friendly experience throughout the quiz session.
+The Quiz page offers a logical layout with a header that includes the site's title or logo. Users can set the number of quiz rounds and start the quiz from the control panel. The main content displays quiz questions with ingredient images and interactive answer buttons. A score display provides real-time feedback on correct and incorrect answers. At the end of the quiz, users see their results and have the option to restart the quiz. The layout is responsive, ensuring a smooth experience on various devices, and the footer provides the usual links and disclaimer.
 
 ### **4. Skeleton Plane**
 
@@ -167,38 +118,39 @@ Feature \#1: Navigation Bar
 The navigation bar will be present in every page and will allow the user to jump from page to page in the website. It will show 
 a hoverable element which will pull down the nav bar with all the links.
 
-<img src="assets/readme-images/header.png" style="width:6.5in;height:0.38889in" />
+<img src="assets/images/page-screenshots/nav-bar.png" style="width:6.5in;height:0.38889in" />
 
 Feature \#2: Access Button
 The button will take you to the dashboard. The button scales up when hovered over. 
 
-<img src"" style"" />
+<img src="assets/images/page-screenshots/landing-page.png" style="width:6.5in;height:0.70833in" />
 
 Feature \#3: Dashboard.
 
 The dashboard has cards that scale up when hovered over. On smaller screens the items stack one after the other. 
 
-
-<img src="assets/readme-images/propaganda.png" style="width:6.5in;height:0.70833in" />
+<img src="assets/images/page-screenshots/dashboard.png" style="width:6.5in;height:0.70833in" />
 
 Feature \#4: Adding Pantry Items.
 
 The pantry site has a title, subheader and a card that when clicked pops open a form to enter the input of new items. When the form is submitted a new item is added. 
 The items can be modified in quantity and removed. 
-<img src="assets/readme-images/values.png" style="width:6.5in;height:1.31944in" />
+<img src="assets/images/page-screenshots/pantry.png" style="width:6.5in;height:1.31944in" />
+<img src="assets/images/page-screenshots/pantry-form.png" style="width:6.5in;height:1.31944in" />
 
 Feature \#5: Grocery List.
 
 This section will have a title, subheader and an add preselected grocery list drop down list and an add button to prepopulate the grocery list. 
 The grocery list is a table which can add ingredients, quantities and has a checkbox for bought items. 
 A remove and add button remove or adds rows to the table. 
-<img src="assets/readme-images/partners.png" style="width:6.5in;height:1.40278in" />
+<img src="assets/images/page-screenshots/grocery-add-buttons.png" style="width:6.5in;height:1.40278in" />
+<img src="assets/images/page-screenshots/grocery-table.png" style="width:6.5in;height:1.40278in" />
 
 Feature \#6: Footer section.
 The footer section has links to the authors LinkedIn and Github and has a link to the home page and the BBC good food page.
 It also has a disclaimer. The links scale up when hovered over. 
 
-<img src="assets/readme-images/footer.png" style="width:6.5in;height:0.93056in" />
+<img src="assets/images/page-screenshots/footer.png" style="width:6.5in;height:0.93056in" />
 
 Feature \#7: Quiz.
 
@@ -206,7 +158,9 @@ The quiz has a title, subheader and greets you with a container containing a exp
 The quiz once started will randomize images and ingredient and diet pairs. If the ingredient and diet pairs are correct and you click on the yes button, then you will get a correct button, if the statement doesn't match your answer you will get an incorrect point.
 Once the number of questions are done, an end of quiz slide will appear telling you the amount of question you got right. 
 
-<img src="assets/readme-images/mentors.png" style="width:6.5in;height:3.06944in" />
+<img src="assets/images/page-screenshots/quiz-start.png" style="width:6.5in;height:3.06944in" />
+<img src="assets/images/page-screenshots/quiz-question.png" style="width:6.5in;height:3.06944in" />
+<img src="assets/images/page-screenshots/quiz-end.png" style="width:6.5in;height:3.06944in" />
 
 ### **Technologies Used**
 
@@ -421,7 +375,7 @@ over.</th>
 
 The site adheres as intended on every device. 
 
-<img src="assets/readme-images/responsiveness.png" style="width:6.5in;height:4.26389in" />
+<img src="assets/images/responsiveness.png" style="width:6.5in;height:4.26389in" />
 
 5. <u>Fixed bugs</u>
 
