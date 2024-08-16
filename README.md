@@ -375,7 +375,7 @@ over.</th>
 
 The site adheres as intended on every device. 
 
-<img src="assets/images/responsiveness.png" style="width:6.5in;height:4.26389in" />
+<img src="assets/images/reponsiveness.png" style="width:6.5in;height:4.26389in" />
 
 5. <u>Fixed bugs</u>
 
